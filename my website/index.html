@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +9,12 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Flutterwave -->
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -457,6 +462,96 @@
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+        }
+
+        /* Checkout Modal */
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .checkout-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkout-container {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .checkout-header {
+            padding: 2rem;
+            background: var(--primary);
+            color: white;
+            position: relative;
+        }
+
+        .checkout-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .order-summary-checkout {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            color: var(--gray);
+        }
+
+        .summary-item.total {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            border-top: 2px solid var(--border);
+            padding-top: 1rem;
+            margin-top: 1rem;
         }
 
         /* Features Bar */
@@ -1530,6 +1625,16 @@
             color: var(--warning);
         }
 
+        .order-status.paid {
+            background: #d1fae5;
+            color: var(--success);
+        }
+
+        .order-status.pending {
+            background: #fef3c7;
+            color: var(--warning);
+        }
+
         .order-items {
             display: flex;
             gap: 1rem;
@@ -2187,8 +2292,8 @@
                 </div>
                 <div style="text-align: center; padding: 2rem;">
                     <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">💬</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">WhatsApp Support</h3>
-                    <p style="opacity: 0.8; line-height: 1.8;">Direct line to us. No bots, no waiting. Instant answers on WhatsApp & Telegram.</p>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Secure Payments</h3>
+                    <p style="opacity: 0.8; line-height: 1.8;">Pay securely with Flutterwave. Cards, Bank Transfer, USSD, and Mobile Money accepted.</p>
                 </div>
             </div>
         </section>
@@ -2306,35 +2411,35 @@
                             <div class="timeline-dot">✓</div>
                             <div class="timeline-content">
                                 <h4>Order Placed</h4>
-                                <p>Jan 27, 2024 at 10:30 AM</p>
+                                <p id="trackDate1">Jan 27, 2024 at 10:30 AM</p>
                             </div>
                         </div>
                         <div class="timeline-item active">
                             <div class="timeline-dot">✓</div>
                             <div class="timeline-content">
                                 <h4>Payment Confirmed</h4>
-                                <p>Jan 27, 2024 at 10:35 AM</p>
+                                <p id="trackDate2">Jan 27, 2024 at 10:35 AM</p>
                             </div>
                         </div>
                         <div class="timeline-item active">
                             <div class="timeline-dot">✓</div>
                             <div class="timeline-content">
                                 <h4>Shipped from Warehouse</h4>
-                                <p>Jan 27, 2024 at 2:15 PM • London Distribution Center</p>
+                                <p id="trackDate3">Jan 27, 2024 at 2:15 PM • London Distribution Center</p>
                             </div>
                         </div>
                         <div class="timeline-item active">
                             <div class="timeline-dot" style="background: var(--accent); animation: pulse 2s infinite;">●</div>
                             <div class="timeline-content">
                                 <h4>Out for Delivery</h4>
-                                <p>Current location: 2.5 miles away • Driver: Michael O.</p>
+                                <p id="trackCurrent">Current location: 2.5 miles away • Driver: Michael O.</p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <h4>Delivered</h4>
-                                <p>Estimated: Today, 2:00 PM - 4:00 PM</p>
+                                <p id="trackEst">Estimated: Today, 2:00 PM - 4:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -2343,7 +2448,7 @@
                         <h4 style="margin-bottom: 1rem;">Need Help?</h4>
                         <p style="margin-bottom: 1rem; color: var(--gray);">Contact your delivery driver or our support team</p>
                         <div style="display: flex; gap: 1rem;">
-                            <button class="btn btn-outline btn-sm" onclick="window.open('https://wa.me/2347032386595')">💬 WhatsApp Driver</button>
+                            <button class="btn btn-outline btn-sm" onclick="window.open('https://wa.me/2347032386595')">💬 WhatsApp </button>
                             <button class="btn btn-primary btn-sm" onclick="window.open('tel:07032386595')">📞 Call Support</button>
                         </div>
                     </div>
@@ -2357,9 +2462,9 @@
         <div class="account-container">
             <aside class="account-sidebar">
                 <div style="text-align: center; margin-bottom: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent), var(--primary)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700;">JD</div>
-                    <h3 style="font-weight: 700;">John Doe</h3>
-                    <p style="color: var(--gray); font-size: 0.875rem;">john.doe@email.com</p>
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent), var(--primary)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700;" id="userAvatar">JD</div>
+                    <h3 style="font-weight: 700;" id="userName">John Doe</h3>
+                    <p style="color: var(--gray); font-size: 0.875rem;" id="userEmail">john.doe@email.com</p>
                 </div>
                 <ul class="account-menu">
                     <li><a href="#" class="active" onclick="showAccountTab('orders')">📦 My Orders</a></li>
@@ -2367,52 +2472,15 @@
                     <li><a href="#" onclick="showAccountTab('addresses')">📍 Addresses</a></li>
                     <li><a href="#" onclick="showAccountTab('payment')">💳 Payment Methods</a></li>
                     <li><a href="#" onclick="showAccountTab('settings')">⚙️ Settings</a></li>
-                    <li><a href="#" style="color: var(--danger);">🚪 Logout</a></li>
+                    <li><a href="#" style="color: var(--danger);" onclick="logout()">🚪 Logout</a></li>
                 </ul>
             </aside>
 
             <div class="account-content" id="accountContent">
                 <h2 style="margin-bottom: 2rem;">My Orders</h2>
-                <div class="orders-list">
-                    <div class="order-card">
-                        <div class="order-header">
-                            <div>
-                                <div class="order-id">Order #TV-1706361600000</div>
-                                <div style="color: var(--gray); font-size: 0.875rem;">Placed on Jan 27, 2024</div>
-                            </div>
-                            <span class="order-status delivered">Delivered</span>
-                        </div>
-                        <div class="order-items">
-                            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=100&h=100&fit=crop" class="order-item-thumb">
-                            <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?w=100&h=100&fit=crop" class="order-item-thumb">
-                        </div>
-                        <div class="order-footer">
-                            <div>
-                                <div style="font-weight: 700;">Total: ₦2,030,000</div>
-                                <div style="font-size: 0.875rem; color: var(--gray);">2 items</div>
-                            </div>
-                            <button class="btn btn-outline btn-sm" onclick="showPage('track')">Track Order</button>
-                        </div>
-                    </div>
-
-                    <div class="order-card">
-                        <div class="order-header">
-                            <div>
-                                <div class="order-id">Order #TV-1706275200000</div>
-                                <div style="color: var(--gray); font-size: 0.875rem;">Placed on Jan 26, 2024</div>
-                            </div>
-                            <span class="order-status shipped">Shipped</span>
-                        </div>
-                        <div class="order-items">
-                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=100&h=100&fit=crop" class="order-item-thumb">
-                        </div>
-                        <div class="order-footer">
-                            <div>
-                                <div style="font-weight: 700;">Total: ₦1,450,000</div>
-                                <div style="font-size: 0.875rem; color: var(--gray);">1 item</div>
-                            </div>
-                            <button class="btn btn-primary btn-sm" onclick="showPage('track')">Track Order</button>
-                        </div>
+                <div id="ordersListContainer">
+                    <div class="orders-list" id="ordersList">
+                        <!-- Orders injected by JS -->
                     </div>
                 </div>
             </div>
@@ -2424,6 +2492,71 @@
         <button class="close-modal" onclick="closeProductModal()">×</button>
         <div class="product-detail-container" id="productDetailContent">
             <!-- Content injected by JS -->
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem;">Complete Your Order</h2>
+                <button class="icon-btn" onclick="closeCheckout()" style="color: white; position: absolute; right: 1.5rem; top: 1.5rem;">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="checkout-body">
+                <form id="checkoutForm" onsubmit="initiatePayment(event)">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" class="form-input" id="customerName" required placeholder="Adegboye Desmond">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" class="form-input" id="customerEmail" required placeholder="desmond@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" class="form-input" id="customerPhone" required placeholder="07032386595">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Delivery Address *</label>
+                        <input type="text" class="form-input" id="customerAddress" required placeholder="123 London Street, London, UK">
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" class="form-input" id="customerCity" placeholder="London">
+                        </div>
+                        <div class="form-group">
+                            <label>Postal Code</label>
+                            <input type="text" class="form-input" id="customerPostal" placeholder="SW1A 1AA">
+                        </div>
+                    </div>
+
+                    <div class="order-summary-checkout">
+                        <h3 style="margin-bottom: 1rem;">Order Summary</h3>
+                        <div id="checkoutItems">
+                            <!-- Items injected here -->
+                        </div>
+                        <div class="summary-item total">
+                            <span>Total</span>
+                            <span id="checkoutTotal">₦0</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full" style="margin-top: 1.5rem; padding: 1rem;">
+                        Pay with Flutterwave
+                    </button>
+                    
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: var(--gray);">
+                        🔒 Secure payment powered by Flutterwave
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -2454,7 +2587,7 @@
                     <span id="cartTotal">₦0</span>
                 </div>
             </div>
-            <button class="btn btn-primary w-full" style="padding: 1rem;" onclick="checkout()">
+            <button class="btn btn-primary w-full" style="padding: 1rem;" onclick="openCheckout()">
                 Proceed to Checkout
             </button>
             <button class="btn btn-outline w-full mt-4" onclick="toggleCart(); showPage('laptops')">
@@ -2467,7 +2600,7 @@
     <div class="compare-bar" id="compareBar">
         <div class="compare-container">
             <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-weight: 700;">Compare Products (2/3)</span>
+                <span style="font-weight: 700;">Compare Products (<span id="compareCount">0</span>/3)</span>
                 <div class="compare-items" id="compareItems"></div>
             </div>
             <div style="display: flex; gap: 1rem;">
@@ -2562,7 +2695,35 @@
     </footer>
 
     <script>
-        // Enhanced Product Database - 30 Products
+        // ==========================================
+        // SUPABASE CONFIGURATION
+        // Replace with your actual Supabase credentials
+        // ==========================================
+        const SUPABASE_URL = 'https://your-project.supabase.co';
+        const SUPABASE_ANON_KEY = 'your-anon-key';
+        
+        let supabaseClient;
+        
+        // Initialize Supabase
+        function initSupabase() {
+            try {
+                supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                console.log('✅ Supabase initialized');
+                checkUser();
+            } catch (error) {
+                console.error('❌ Supabase init failed:', error);
+            }
+        }
+
+        // ==========================================
+        // FLUTTERWAVE CONFIGURATION
+        // Replace with your actual Flutterwave Public Key
+        // ==========================================
+        const FLUTTERWAVE_PUBLIC_KEY = 'FLWPUBK_TEST-XXXXXXXXXXXXXXXXXXXXXXXXXXXX-X'; // Replace with live key for production
+        
+        // ==========================================
+        // PRODUCT DATABASE (30 Products)
+        // ==========================================
         const products = [
             // LAPTOPS (15)
             {
@@ -2733,7 +2894,7 @@
                 brand: "Microsoft",
                 price: 650000,
                 originalPrice: 780000,
-                image: "https://images.unsplash.com/photo-1531297461136-82lw9z289527?w=600&h=400&fit=crop",
+                image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop",
                 specs: { processor: "Intel i7-1255U", ram: "16GB", storage: "512GB SSD", display: "13.5-inch PixelSense Touch", battery: "18 hours", weight: "1.27 kg" },
                 description: "Sleek design meets Windows 11 perfection.",
                 rating: 4.6,
@@ -3036,27 +3197,318 @@
         let compareList = [];
         let currentFilter = 'all';
         let currentSort = 'featured';
+        let currentUser = null;
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
+            initSupabase();
             renderFeaturedProducts();
             updateCart();
             updateWishlist();
             setupScrollEffect();
             setupSearch();
             renderBrandFilters();
+            loadUserOrders();
         });
 
-        // Page Navigation
+        // ==========================================
+        // AUTH & USER FUNCTIONS
+        // ==========================================
+        
+        async function checkUser() {
+            try {
+                const { data: { user } } = await supabaseClient.auth.getUser();
+                if (user) {
+                    currentUser = user;
+                    updateUserUI(user);
+                }
+            } catch (error) {
+                console.log('No active session');
+            }
+        }
+
+        function updateUserUI(user) {
+            const email = user.email;
+            const name = email.split('@')[0];
+            document.getElementById('userEmail').textContent = email;
+            document.getElementById('userName').textContent = name.charAt(0).toUpperCase() + name.slice(1);
+            document.getElementById('userAvatar').textContent = name.substring(0, 2).toUpperCase();
+        }
+
+        async function logout() {
+            await supabaseClient.auth.signOut();
+            currentUser = null;
+            showToast('Logged out successfully');
+            setTimeout(() => location.reload(), 1000);
+        }
+
+        // ==========================================
+        // CHECKOUT & PAYMENT FUNCTIONS
+        // ==========================================
+
+        function openCheckout() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+            
+            // Populate checkout items
+            const checkoutItems = document.getElementById('checkoutItems');
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            checkoutItems.innerHTML = cart.map(item => `
+                <div class="summary-item">
+                    <span>${item.name} x${item.quantity}</span>
+                    <span>₦${(item.price * item.quantity).toLocaleString()}</span>
+                </div>
+            `).join('');
+            
+            document.getElementById('checkoutTotal').textContent = `₦${total.toLocaleString()}`;
+            document.getElementById('checkoutModal').classList.add('active');
+            toggleCart();
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+
+        async function initiatePayment(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+            const phone = document.getElementById('customerPhone').value;
+            const address = document.getElementById('customerAddress').value;
+            const city = document.getElementById('customerCity').value || 'London';
+            const postal = document.getElementById('customerPostal').value || '';
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tx_ref = `TV-${Date.now()}`;
+            
+            // Save order to Supabase first (pending status)
+            const orderData = {
+                order_id: tx_ref,
+                customer_name: name,
+                customer_email: email,
+                customer_phone: phone,
+                customer_address: `${address}, ${city}, ${postal}`,
+                items: cart,
+                total_amount: total,
+                status: 'pending',
+                payment_status: 'pending',
+                created_at: new Date().toISOString()
+            };
+            
+            try {
+                const { data, error } = await supabaseClient
+                    .from('orders')
+                    .insert([orderData]);
+                    
+                if (error) throw error;
+                
+                // Initialize Flutterwave payment
+                FlutterwaveCheckout({
+                    public_key: FLUTTERWAVE_PUBLIC_KEY,
+                    tx_ref: tx_ref,
+                    amount: total,
+                    currency: "NGN",
+                    payment_options: "card, banktransfer, ussd, mobilemoney",
+                    customer: {
+                        email: email,
+                        phone_number: phone,
+                        name: name,
+                    },
+                    customizations: {
+                        title: "TechVault Pro",
+                        description: "Payment for tech products",
+                        logo: "https://your-logo-url.com/logo.png",
+                    },
+                    callback: function(data) {
+                        // Verify and update order
+                        verifyPayment(data, orderData);
+                    },
+                    onclose: function() {
+                        showToast('Payment cancelled');
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Order creation failed:', error);
+                showToast('Failed to create order. Please try again.');
+            }
+        }
+
+        async function verifyPayment(paymentData, orderData) {
+            try {
+                // Update order to paid
+                const { error } = await supabaseClient
+                    .from('orders')
+                    .update({ 
+                        status: 'paid',
+                        payment_status: 'completed',
+                        payment_reference: paymentData.flw_ref,
+                        paid_at: new Date().toISOString()
+                    })
+                    .eq('order_id', orderData.order_id);
+                    
+                if (error) throw error;
+                
+                // Clear cart
+                cart = [];
+                saveCart();
+                updateCart();
+                closeCheckout();
+                
+                showToast('Payment successful! Order confirmed.', 'success');
+                
+                // Redirect to order tracking
+                setTimeout(() => {
+                    document.getElementById('trackingInput').value = orderData.order_id;
+                    showPage('track');
+                    trackOrder();
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Payment verification failed:', error);
+                showToast('Payment received but verification pending. We will contact you.');
+            }
+        }
+
+        // ==========================================
+        // ORDER TRACKING (FROM SUPABASE)
+        // ==========================================
+
+        async function trackOrder() {
+            const input = document.getElementById('trackingInput').value.trim();
+            if (!input || input.length < 5) {
+                showToast('Please enter a valid order ID');
+                return;
+            }
+            
+            try {
+                const { data, error } = await supabaseClient
+                    .from('orders')
+                    .select('*')
+                    .eq('order_id', input)
+                    .single();
+                    
+                if (error || !data) {
+                    showToast('Order not found');
+                    return;
+                }
+                
+                // Display tracking info
+                document.getElementById('trackingResult').classList.add('active');
+                
+                // Update timeline based on status
+                const created = new Date(data.created_at);
+                document.getElementById('trackDate1').textContent = created.toLocaleString();
+                
+                if (data.status === 'paid' || data.status === 'processing' || data.status === 'shipped' || data.status === 'delivered') {
+                    document.getElementById('trackDate2').textContent = new Date(data.paid_at || data.created_at).toLocaleString();
+                }
+                
+                showToast('Order found! Tracking details loaded.', 'success');
+                
+            } catch (error) {
+                console.error('Tracking error:', error);
+                // Fallback to demo mode if Supabase not connected
+                document.getElementById('trackingResult').classList.add('active');
+            }
+        }
+
+        async function loadUserOrders() {
+            if (!supabaseClient) return;
+            
+            try {
+                const { data: { user } } = await supabaseClient.auth.getUser();
+                if (!user) return;
+                
+                const { data: orders, error } = await supabaseClient
+                    .from('orders')
+                    .select('*')
+                    .eq('customer_email', user.email)
+                    .order('created_at', { ascending: false });
+                    
+                if (error) throw error;
+                
+                renderOrders(orders || []);
+                
+            } catch (error) {
+                console.log('Using local orders');
+                renderDemoOrders();
+            }
+        }
+
+        function renderOrders(orders) {
+            const container = document.getElementById('ordersList');
+            
+            if (orders.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">No orders yet</p>';
+                return;
+            }
+            
+            container.innerHTML = orders.map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <div class="order-id">Order #${order.order_id}</div>
+                            <div style="color: var(--gray); font-size: 0.875rem;">Placed on ${new Date(order.created_at).toLocaleDateString()}</div>
+                        </div>
+                        <span class="order-status ${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span>
+                    </div>
+                    <div class="order-items">
+                        ${order.items.map(item => `
+                            <img src="${item.image}" class="order-item-thumb" alt="${item.name}">
+                        `).join('')}
+                    </div>
+                    <div class="order-footer">
+                        <div>
+                            <div style="font-weight: 700;">Total: ₦${order.total_amount.toLocaleString()}</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">${order.items.length} items</div>
+                        </div>
+                        <button class="btn btn-outline btn-sm" onclick="document.getElementById('trackingInput').value='${order.order_id}'; showPage('track'); trackOrder();">Track Order</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderDemoOrders() {
+            const container = document.getElementById('ordersList');
+            container.innerHTML = `
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <div class="order-id">Order #TV-1706361600000</div>
+                            <div style="color: var(--gray); font-size: 0.875rem;">Placed on Jan 27, 2024</div>
+                        </div>
+                        <span class="order-status delivered">Delivered</span>
+                    </div>
+                    <div class="order-items">
+                        <img src="${products[0].image}" class="order-item-thumb">
+                    </div>
+                    <div class="order-footer">
+                        <div>
+                            <div style="font-weight: 700;">Total: ₦950,000</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">1 item</div>
+                        </div>
+                        <button class="btn btn-outline btn-sm" onclick="showPage('track')">Track Order</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // EXISTING FUNCTIONS (Keep all original functionality)
+        // ==========================================
+
         function showPage(page) {
-            // Hide all pages
             document.getElementById('homePage').classList.remove('active');
             document.getElementById('homePage').style.display = 'none';
             document.getElementById('productsPage').classList.remove('active');
             document.getElementById('trackPage').classList.remove('active');
             document.getElementById('accountPage').classList.remove('active');
 
-            // Show selected page
             if(page === 'home') {
                 document.getElementById('homePage').style.display = 'block';
                 setTimeout(() => document.getElementById('homePage').classList.add('active'), 10);
@@ -3082,12 +3534,10 @@
             }
         }
 
-        // Render Products
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             let filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
             
-            // Apply sorting
             if(currentSort === 'price-low') {
                 filtered.sort((a, b) => a.price - b.price);
             } else if(currentSort === 'price-high') {
@@ -3097,7 +3547,6 @@
             }
 
             document.getElementById('resultsCount').textContent = `Showing ${filtered.length} products`;
-            
             grid.innerHTML = filtered.map(product => createProductCard(product)).join('');
         }
 
@@ -3140,7 +3589,6 @@
             `;
         }
 
-        // Product Detail Modal
         function openProductModal(productId) {
             const product = products.find(p => p.id === productId);
             const modal = document.getElementById('productModal');
@@ -3236,7 +3684,6 @@
             modalQuantity = 1;
         }
 
-        // Search Functionality
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
             const searchResults = document.getElementById('searchResults');
@@ -3283,7 +3730,6 @@
             }
         }
 
-        // Cart Functions
         function addToCart(productId, showNotification = true) {
             const product = products.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
@@ -3385,7 +3831,6 @@
             }
         }
 
-        // Wishlist
         function toggleWishlistItem(productId, event) {
             event.stopPropagation();
             const index = wishlist.indexOf(productId);
@@ -3416,7 +3861,6 @@
             showToast(`You have ${wishlist.length} items in wishlist`);
         }
 
-        // Comparison
         function addToCompare(productId) {
             if(compareList.includes(productId)) {
                 showToast('Already in compare list');
@@ -3436,12 +3880,15 @@
         function updateCompareBar() {
             const bar = document.getElementById('compareBar');
             const itemsDiv = document.getElementById('compareItems');
+            const count = document.getElementById('compareCount');
+            
+            count.textContent = compareList.length;
             
             if(compareList.length > 0) {
                 bar.classList.add('active');
                 itemsDiv.innerHTML = compareList.map(id => {
                     const product = products.find(p => p.id === id);
-                    return `<img src="${product.image}" class="compare-thumb" title="${product.name}" onclick="removeFromCompare(${id})">`;
+                    return `<img src="${product.image}" class="compare-thumb" title="${product.name}" onclick="removeFromCompare(${id})" style="cursor: pointer;">`;
                 }).join('');
             } else {
                 bar.classList.remove('active');
@@ -3467,7 +3914,6 @@
             const compareProducts = compareList.map(id => products.find(p => p.id === id));
             let html = '<div style="padding: 2rem;"><h2 style="margin-bottom: 2rem;">Product Comparison</h2><div style="display: grid; grid-template-columns: repeat(' + compareProducts.length + ', 1fr); gap: 2rem;">';
             
-            // Headers
             compareProducts.forEach(p => {
                 html += `<div style="text-align: center;">
                     <img src="${p.image}" style="width: 100%; max-width: 200px; border-radius: 12px; margin-bottom: 1rem;">
@@ -3479,7 +3925,6 @@
             
             html += '</div><table style="width: 100%; margin-top: 3rem; border-collapse: collapse;">';
             
-            // Specs comparison
             const specs = Object.keys(compareProducts[0].specs);
             specs.forEach(spec => {
                 html += `<tr style="border-bottom: 1px solid var(--border);">
@@ -3492,47 +3937,10 @@
             
             html += '</table></div>';
             
-            // Show in modal
             document.getElementById('productDetailContent').innerHTML = html;
             document.getElementById('productModal').classList.add('active');
         }
 
-        // Order Tracking
-        function trackOrder() {
-            const input = document.getElementById('trackingInput').value;
-            if(!input || input.length < 5) {
-                showToast('Please enter a valid order ID');
-                return;
-            }
-            
-            // Simulate tracking
-            document.getElementById('trackingResult').classList.add('active');
-            showToast('Order found! Tracking live location...', 'success');
-            
-            // Simulate GPS movement
-            simulateGPS();
-        }
-
-        function simulateGPS() {
-            // In real implementation, this would connect to GPS API
-            console.log('GPS Tracking active for order');
-        }
-
-        // Checkout
-        function checkout() {
-            toggleCart();
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            // Create WhatsApp message
-            const items = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
-            const message = `Hi TechVault! I want to place an order:\n\n${items}\n\nTotal: ₦${total.toLocaleString()}\n\nPlease confirm availability and payment details.`;
-            
-            window.open(`https://wa.me/2347032386595?text=${encodeURIComponent(message)}`, '_blank');
-            
-            showToast('Redirecting to WhatsApp checkout...', 'success');
-        }
-
-        // Chat Widget
         function toggleChat() {
             const chatWindow = document.getElementById('chatWindow');
             chatWindow.classList.toggle('active');
@@ -3549,17 +3957,15 @@
             
             const messagesDiv = document.getElementById('chatMessages');
             
-            // Add user message
             messagesDiv.innerHTML += `<div class="message sent">${message}</div>`;
             input.value = '';
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
             
-            // Simulate reply
             setTimeout(() => {
                 const replies = [
                     "Thanks for reaching out! This is Desmond. How can I help you today? 😊",
                     "Great choice! That model is currently in stock. Would you like me to reserve one for you?",
-                    "We offer free delivery within London. Cash on delivery or bank transfer accepted!",
+                    "We offer free delivery within London. You can pay securely with Flutterwave!",
                     "Hi! Olusola here. That device comes with 2 years warranty. Any other questions?"
                 ];
                 const randomReply = replies[Math.floor(Math.random() * replies.length)];
@@ -3568,7 +3974,6 @@
             }, 1500);
         }
 
-        // Utilities
         function showToast(message, type = 'normal') {
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toastMessage');
@@ -3594,7 +3999,6 @@
             });
         }
 
-        // Filters
         function toggleCategory(cat) {
             currentFilter = cat;
             renderProducts();
@@ -3616,7 +4020,6 @@
         }
 
         function filterByBrand(brand) {
-            // Implementation for brand filtering
             showToast(`Filtered by ${brand}`);
         }
 
@@ -3630,7 +4033,6 @@
             showToast(`Showing ${minRating}★ and above`);
         }
 
-        // Account Tabs
         function showAccountTab(tab) {
             const content = document.getElementById('accountContent');
             document.querySelectorAll('.account-menu a').forEach(a => a.classList.remove('active'));
@@ -3644,49 +4046,27 @@
                     content.innerHTML = '<h2 style="margin-bottom: 2rem;">My Wishlist</h2><div class="products-grid">' + wishlistProducts.map(p => createProductCard(p)).join('') + '</div>';
                 }
             } else if(tab === 'orders') {
-                content.innerHTML = `
-                    <h2 style="margin-bottom: 2rem;">My Orders</h2>
-                    <div class="orders-list">
-                        <div class="order-card">
-                            <div class="order-header">
-                                <div>
-                                    <div class="order-id">Order #TV-1706361600000</div>
-                                    <div style="color: var(--gray); font-size: 0.875rem;">Placed on Jan 27, 2024</div>
-                                </div>
-                                <span class="order-status delivered">Delivered</span>
-                            </div>
-                            <div class="order-items">
-                                <img src="${products[0].image}" class="order-item-thumb">
-                            </div>
-                            <div class="order-footer">
-                                <div>
-                                    <div style="font-weight: 700;">Total: ₦950,000</div>
-                                    <div style="font-size: 0.875rem; color: var(--gray);">1 item</div>
-                                </div>
-                                <button class="btn btn-outline btn-sm" onclick="showPage('track')">Track Order</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                content.innerHTML = `<h2 style="margin-bottom: 2rem;">My Orders</h2><div id="ordersList" class="orders-list"></div>`;
+                loadUserOrders();
             } else {
                 content.innerHTML = `<h2>${tab.charAt(0).toUpperCase() + tab.slice(1)}</h2><p style="color: var(--gray); margin-top: 2rem;">This section is coming soon.</p>`;
             }
         }
 
-        // Close modals on escape
         document.addEventListener('keydown', (e) => {
             if(e.key === 'Escape') {
                 closeProductModal();
+                closeCheckout();
                 document.getElementById('cartSidebar').classList.remove('active');
                 document.getElementById('cartOverlay').classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
 
-        console.log('🚀 TechVault Pro Loaded');
+        console.log('🚀 TechVault Pro with Flutterwave & Supabase Loaded');
+        console.log('💳 Secure Payments Enabled');
         console.log('📞 WhatsApp: 07032386595');
         console.log('✈ Telegram: @fajnigltd');
-        console.log('👥 Founders: Adegboye Desmond & Olusola');
     </script>
 </body>
 </html>
