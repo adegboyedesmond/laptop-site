@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechVault Pro | Premium Tech Marketplace London</title>
-    <meta name="description" content="London's premier destination for premium laptops and smartphones. Track orders in real-time, compare specs, read reviews. Led by Adegboye Desmond & Olusola.">
+    <title>Axton Laptop Site | Premium Laptop Marketplace London</title>
+    <meta name="description" content="London's premier destination for premium laptops. Track orders in real-time, compare specs, read reviews. Led by Adegboye Desmond & Olusola.">
+    
+    <!-- VS Code Style Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23007ACC'/%3E%3Cpath d='M65 25L85 40L65 55M35 75L15 60L35 45' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M55 20L45 80' stroke='white' stroke-width='8' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" type="image/svg+xml">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -25,8 +28,8 @@
         :root {
             --primary: #0f172a;
             --secondary: #1e293b;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
+            --accent: #007ACC;
+            --accent-hover: #005a9e;
             --gold: #f59e0b;
             --success: #10b981;
             --danger: #ef4444;
@@ -53,7 +56,6 @@
             overflow-x: hidden;
         }
 
-        /* Header Styles */
         .header {
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(20px);
@@ -128,6 +130,7 @@
             color: white;
             font-weight: 800;
             font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3);
         }
 
         .nav-center {
@@ -155,7 +158,7 @@
             outline: none;
             border-color: var(--accent);
             background: white;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
         }
 
         .search-icon {
@@ -247,7 +250,6 @@
             align-items: center;
         }
 
-        /* Currency Converter Styles */
         .currency-converter {
             position: relative;
             margin-right: 0.5rem;
@@ -377,7 +379,7 @@
         .btn-primary:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 122, 204, 0.3);
         }
 
         .btn-gold {
@@ -406,7 +408,6 @@
             font-size: 0.875rem;
         }
 
-        /* Hero Section */
         .hero {
             margin-top: 140px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #0f172a 100%);
@@ -537,7 +538,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Checkout Modal */
         .checkout-modal {
             display: none;
             position: fixed;
@@ -627,7 +627,6 @@
             margin-top: 1rem;
         }
 
-        /* Features Bar */
         .features-bar {
             background: white;
             padding: 2rem;
@@ -680,7 +679,6 @@
             color: var(--gray);
         }
 
-        /* Categories Section */
         .section {
             padding: 5rem 2rem;
             max-width: 1400px;
@@ -717,72 +715,6 @@
             margin: 0 auto;
         }
 
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .category-card {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            height: 400px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .category-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .category-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2.5rem;
-            color: white;
-        }
-
-        .category-tag {
-            background: var(--gold);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 1rem;
-            width: fit-content;
-        }
-
-        .category-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .category-desc {
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Brands Marquee */
         .brands-section {
             background: var(--light);
             padding: 3rem 0;
@@ -819,7 +751,6 @@
             color: var(--primary);
         }
 
-        /* Products Page */
         .products-page {
             display: none;
             padding-top: 140px;
@@ -944,7 +875,6 @@
             transition: var(--transition);
             border: 1px solid var(--border);
             position: relative;
-            group: hover;
         }
 
         .product-card:hover {
@@ -1136,7 +1066,6 @@
             transform: scale(1.1);
         }
 
-        /* Product Detail Modal */
         .product-modal {
             display: none;
             position: fixed;
@@ -1291,7 +1220,6 @@
             font-weight: 600;
         }
 
-        /* Cart Sidebar */
         .cart-overlay {
             position: fixed;
             top: 0;
@@ -1414,7 +1342,6 @@
             margin-top: 1rem;
         }
 
-        /* Order Tracking */
         .tracking-page {
             display: none;
             padding-top: 140px;
@@ -1493,7 +1420,7 @@
             justify-content: center;
             color: white;
             font-size: 1.5rem;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 122, 204, 0.4);
             animation: bounce 2s infinite;
         }
 
@@ -1556,7 +1483,7 @@
 
         .timeline-item.active .timeline-dot {
             background: var(--accent);
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 0 4px rgba(0, 122, 204, 0.2);
         }
 
         .timeline-dot {
@@ -1584,7 +1511,6 @@
             font-size: 0.875rem;
         }
 
-        /* User Account */
         .account-page {
             display: none;
             padding-top: 140px;
@@ -1729,7 +1655,6 @@
             border-top: 1px solid var(--border);
         }
 
-        /* Comparison Tool */
         .compare-bar {
             position: fixed;
             bottom: 0;
@@ -1768,7 +1693,6 @@
             border: 2px solid var(--accent);
         }
 
-        /* Reviews Section */
         .reviews-section {
             margin-top: 3rem;
             padding-top: 3rem;
@@ -1817,7 +1741,6 @@
             color: var(--gray);
         }
 
-        /* Enhanced Help Chat Widget */
         .chat-widget {
             position: fixed;
             bottom: 2rem;
@@ -1836,16 +1759,16 @@
             justify-content: center;
             font-size: 2rem;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 122, 204, 0.4);
             transition: var(--transition);
             border: 4px solid white;
             animation: pulse-animation 2s infinite;
         }
 
         @keyframes pulse-animation {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 122, 204, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 122, 204, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 122, 204, 0); }
         }
 
         .chat-button:hover {
@@ -2054,7 +1977,6 @@
             30% { transform: translateY(-10px); }
         }
 
-        /* Footer */
         .footer {
             background: var(--primary);
             color: white;
@@ -2148,7 +2070,6 @@
             font-size: 1.5rem;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
             .hero-container {
                 grid-template-columns: 1fr;
@@ -2174,10 +2095,6 @@
 
             .features-container {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .categories-grid {
-                grid-template-columns: 1fr;
             }
 
             .footer-grid {
@@ -2232,7 +2149,6 @@
             }
         }
 
-        /* Animations */
         @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -2242,7 +2158,6 @@
             animation: slideUp 0.6s ease forwards;
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 100px;
@@ -2270,7 +2185,6 @@
             background: var(--success);
         }
 
-        /* Loading States */
         .skeleton {
             background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
             background-size: 200% 100%;
@@ -2282,7 +2196,6 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Utility Classes */
         .hidden { display: none !important; }
         .text-center { text-align: center; }
         .mt-4 { margin-top: 1rem; }
@@ -2293,13 +2206,12 @@
         .justify-between { justify-content: space-between; }
         .gap-4 { gap: 1rem; }
 
-        /* Payment Mode Badge */
         .payment-mode-indicator {
             position: fixed;
             bottom: 100px;
             left: 20px;
-            background: var(--warning);
-            color: var(--primary);
+            background: var(--success);
+            color: white;
             padding: 0.5rem 1rem;
             border-radius: 8px;
             font-size: 0.75rem;
@@ -2315,19 +2227,17 @@
 </head>
 <body>
 
-    <!-- Payment Mode Indicator -->
     <div class="payment-mode-indicator" id="paymentModeIndicator">
-        🔧 TEST MODE - Use Flutterwave test cards
+        ✅ LIVE MODE - Secure payments active
     </div>
 
-    <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-left">
             <a href="tel:07032386595">
                 <span>📞</span> 07032386595
             </a>
-            <a href="mailto:support@techvault.ng">
-                <span>✉</span> support@techvault.ng
+            <a href="mailto:support@axtonlaptops.ng">
+                <span>✉</span> support@axtonlaptops.ng
             </a>
         </div>
         <div>
@@ -2335,31 +2245,34 @@
         </div>
     </div>
 
-    <!-- Header -->
     <header class="header" id="header">
         <div class="nav-container">
             <a href="#" class="logo" onclick="showPage('home')">
-                <div class="logo-icon">TV</div>
-                <span>TechVault</span>
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+                <span>Axton Laptop Site</span>
             </a>
 
             <div class="nav-center">
                 <div class="search-box">
                     <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input" placeholder="Search laptops, phones, brands..." id="searchInput" oninput="handleSearch(this.value)">
+                    <input type="text" class="search-input" placeholder="Search laptops, brands, specs..." id="searchInput" oninput="handleSearch(this.value)">
                     <div class="search-results" id="searchResults"></div>
                 </div>
             </div>
 
             <ul class="nav-links">
                 <li><a href="#" onclick="showPage('home')">Home</a></li>
-                <li><a href="#" onclick="showPage('laptops')">Laptops</a></li>
-                <li><a href="#" onclick="showPage('phones')">Phones</a></li>
+                <li><a href="#" onclick="showPage('laptops')">All Laptops</a></li>
                 <li><a href="#" onclick="showPage('track')">Track Order</a></li>
+                <li><a href="#" onclick="showPage('account')">Account</a></li>
             </ul>
 
             <div class="nav-actions">
-                <!-- Currency Converter -->
                 <div class="currency-converter">
                     <button class="currency-btn" onclick="toggleCurrencyDropdown()">
                         <span id="currentCurrencySymbol">₦</span>
@@ -2425,22 +2338,20 @@
         </div>
     </header>
 
-    <!-- HOME PAGE -->
     <div id="homePage" class="page active">
-        <!-- Hero -->
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1>Premium Tech, Delivered with Care</h1>
-                    <p>London's most trusted destination for laptops and smartphones. Real-time order tracking, expert support, and quality guaranteed by Adegboye Desmond & Olusola.</p>
+                    <h1>Premium Laptops, Delivered with Care</h1>
+                    <p>London's most trusted destination for premium laptops. Real-time order tracking, expert support, and quality guaranteed by Adegboye Desmond & Olusola.</p>
                     <div class="hero-buttons">
-                        <button class="btn btn-gold" onclick="showPage('laptops')">Explore Laptops</button>
-                        <button class="btn btn-outline" style="color: white; border-color: white;" onclick="showPage('phones')">Shop Phones</button>
+                        <button class="btn btn-gold" onclick="showPage('laptops')">Shop All Laptops</button>
+                        <button class="btn btn-outline" style="color: white; border-color: white;" onclick="openChat()">Chat with Us</button>
                     </div>
                     <div class="hero-stats">
                         <div class="stat">
-                            <span class="stat-number">30K+</span>
-                            <span class="stat-label">Happy Customers</span>
+                            <span class="stat-number">60+</span>
+                            <span class="stat-label">Laptop Models</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">4.9★</span>
@@ -2472,14 +2383,13 @@
             </div>
         </section>
 
-        <!-- Features Bar -->
         <div class="features-bar">
             <div class="features-container">
                 <div class="feature-item">
                     <div class="feature-icon">✓</div>
                     <div class="feature-text">
                         <h4>Certified Quality</h4>
-<p>Every device tested</p>
+                        <p>Every laptop tested</p>
                     </div>
                 </div>
                 <div class="feature-item">
@@ -2506,79 +2416,51 @@
             </div>
         </div>
 
-        <!-- Categories -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-label">Collections</span>
-                <h2 class="section-title">Browse Categories</h2>
-                <p class="section-subtitle">Choose from our curated selection of premium devices</p>
-            </div>
-            <div class="categories-grid">
-                <div class="category-card" onclick="showPage('laptops')">
-                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop" alt="Laptops">
-                    <div class="category-overlay">
-                        <span class="category-tag">15 Products</span>
-                        <h3 class="category-title">Premium Laptops</h3>
-                        <p class="category-desc">From MacBooks to gaming powerhouses, find your perfect workstation.</p>
-                        <button class="btn btn-gold" style="width: fit-content;">Shop Now →</button>
-                    </div>
-                </div>
-                <div class="category-card" onclick="showPage('phones')">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=600&fit=crop" alt="Phones">
-                    <div class="category-overlay">
-                        <span class="category-tag">15 Products</span>
-                        <h3 class="category-title">Smartphones</h3>
-                        <p class="category-desc">Latest iPhones, Samsung Galaxy, and Android flagships.</p>
-                        <button class="btn btn-gold" style="width: fit-content;">Shop Now →</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Brands -->
         <div class="brands-section">
             <div class="brands-track">
                 <div class="brand-item">Apple</div>
-                <div class="brand-item">Samsung</div>
                 <div class="brand-item">Dell</div>
                 <div class="brand-item">HP</div>
                 <div class="brand-item">Lenovo</div>
                 <div class="brand-item">Asus</div>
                 <div class="brand-item">Microsoft</div>
                 <div class="brand-item">Razer</div>
-                <div class="brand-item">Google</div>
-                <div class="brand-item">OnePlus</div>
+                <div class="brand-item">Acer</div>
+                <div class="brand-item">MSI</div>
+                <div class="brand-item">LG</div>
+                <div class="brand-item">Samsung</div>
+                <div class="brand-item">Alienware</div>
                 <div class="brand-item">Apple</div>
-                <div class="brand-item">Samsung</div>
                 <div class="brand-item">Dell</div>
                 <div class="brand-item">HP</div>
                 <div class="brand-item">Lenovo</div>
                 <div class="brand-item">Asus</div>
                 <div class="brand-item">Microsoft</div>
                 <div class="brand-item">Razer</div>
-                <div class="brand-item">Google</div>
-                <div class="brand-item">OnePlus</div>
+                <div class="brand-item">Acer</div>
+                <div class="brand-item">MSI</div>
+                <div class="brand-item">LG</div>
+                <div class="brand-item">Samsung</div>
+                <div class="brand-item">Alienware</div>
             </div>
         </div>
 
-        <!-- Featured Products Preview -->
         <section class="section" style="background: white;">
             <div class="section-header">
-                <span class="section-label">Trending Now</span>
-                <h2 class="section-title">Most Popular</h2>
-                <p class="section-subtitle">What our customers love most</p>
+                <span class="section-label">Premium Collection</span>
+                <h2 class="section-title">Featured Laptops</h2>
+                <p class="section-subtitle">Handpicked selection of our best selling laptops</p>
             </div>
             <div class="products-grid" id="featuredProducts"></div>
             <div class="text-center" style="margin-top: 3rem;">
-                <button class="btn btn-outline" onclick="showPage('laptops')">View All Products</button>
+                <button class="btn btn-outline" onclick="showPage('laptops')">View All 60 Laptops</button>
             </div>
         </section>
 
-        <!-- Why Choose Us -->
         <section class="section" style="background: var(--primary); color: white;">
             <div class="section-header">
                 <span class="section-label" style="color: var(--gold);">Our Promise</span>
-                <h2 class="section-title" style="color: white;">Why TechVault?</h2>
+                <h2 class="section-title" style="color: white;">Why Axton Laptop Site?</h2>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;">
                 <div style="text-align: center; padding: 2rem;">
@@ -2589,7 +2471,7 @@
                 <div style="text-align: center; padding: 2rem;">
                     <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">📍</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">GPS Tracking</h3>
-                    <p style="opacity: 0.8; line-height: 1.8;">Know exactly where your order is. Real-time GPS tracking on every delivery.</p>
+                    <p style="opacity: 0.8; line-height: 1.8;">Know exactly where your laptop is. Real-time GPS tracking on every delivery.</p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
                     <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">💬</div>
@@ -2600,35 +2482,18 @@
         </section>
     </div>
 
-    <!-- PRODUCTS PAGE (Laptops/Phones) -->
     <div id="productsPage" class="products-page">
         <div class="products-layout">
-            <!-- Sidebar Filters -->
             <aside class="sidebar">
                 <div class="filter-section">
                     <div class="filter-title">
-                        <span>Categories</span>
+                        <span>Brands</span>
                     </div>
-                    <div class="filter-options">
-                        <label class="filter-option">
-                            <input type="checkbox" checked onchange="toggleCategory('all')">
-                            <span>All Products</span>
-                        </label>
-                        <label class="filter-option">
-                            <input type="checkbox" onchange="toggleCategory('laptop')">
-                            <span>Laptops</span>
-                        </label>
-                        <label class="filter-option">
-                            <input type="checkbox" onchange="toggleCategory('phone')">
-                            <span>Smartphones</span>
-                        </label>
-                    </div>
+                    <div class="filter-options" id="brandFilters"></div>
                 </div>
 
                 <div class="filter-section">
-                    <div class="filter-toggle" onclick="toggleFilterSection(this)">
-                        <div class="filter-title">Price Range</div>
-                    </div>
+                    <div class="filter-title">Price Range</div>
                     <div class="filter-options" style="display: block;">
                         <div class="price-range" style="margin-bottom: 1rem;">
                             <input type="number" class="price-input" placeholder="Min" id="minPrice">
@@ -2640,8 +2505,29 @@
                 </div>
 
                 <div class="filter-section">
-                    <div class="filter-title">Brands</div>
-                    <div class="filter-options" id="brandFilters"></div>
+                    <div class="filter-title">Categories</div>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" checked onchange="filterByCategory('all')">
+                            <span>All Laptops</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" onchange="filterByCategory('gaming')">
+                            <span>Gaming</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" onchange="filterByCategory('business')">
+                            <span>Business</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" onchange="filterByCategory('ultrabook')">
+                            <span>Ultrabooks</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" onchange="filterByCategory('creative')">
+                            <span>Creative Work</span>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="filter-section">
@@ -2659,12 +2545,11 @@
                 </div>
             </aside>
 
-            <!-- Products Grid -->
             <div>
                 <div class="products-header">
                     <div>
-                        <h2 id="pageTitle">All Products</h2>
-                        <p class="results-count" id="resultsCount">Showing 30 products</p>
+                        <h2 id="pageTitle">All Laptops (60)</h2>
+                        <p class="results-count" id="resultsCount">Showing 60 products</p>
                     </div>
                     <select class="sort-dropdown" onchange="sortProducts(this.value)">
                         <option value="featured">Featured</option>
@@ -2679,17 +2564,16 @@
         </div>
     </div>
 
-    <!-- TRACK ORDER PAGE -->
     <div id="trackPage" class="tracking-page">
         <div class="tracking-container">
             <div class="tracking-header">
                 <span class="section-label">Order Status</span>
-                <h2 class="section-title">Track Your Order</h2>
+                <h2 class="section-title">Track Your Laptop Order</h2>
                 <p class="section-subtitle">Enter your order ID to see real-time location and status</p>
             </div>
 
             <div class="tracking-form">
-                <input type="text" class="tracking-input" placeholder="Enter Order ID (e.g., TV-1234567890)" id="trackingInput">
+                <input type="text" class="tracking-input" placeholder="Enter Order ID (e.g., AX-1234567890)" id="trackingInput">
                 <button class="btn btn-primary" onclick="trackOrder()">Track Order</button>
             </div>
 
@@ -2706,7 +2590,7 @@
                         <div class="status-icon">🚚</div>
                         <div class="status-text">
                             <h3>Out for Delivery</h3>
-                            <p>Your order is on the way! Estimated arrival: Today, 2:00 PM - 4:00 PM</p>
+                            <p>Your laptop is on the way! Estimated arrival: Today, 2:00 PM - 4:00 PM</p>
                         </div>
                     </div>
 
@@ -2762,7 +2646,6 @@
         </div>
     </div>
 
-    <!-- ACCOUNT PAGE -->
     <div id="accountPage" class="account-page">
         <div class="account-container">
             <aside class="account-sidebar">
@@ -2784,27 +2667,21 @@
             <div class="account-content" id="accountContent">
                 <h2 style="margin-bottom: 2rem;">My Orders</h2>
                 <div id="ordersListContainer">
-                    <div class="orders-list" id="ordersList">
-                        <!-- Orders injected by JS -->
-                    </div>
+                    <div class="orders-list" id="ordersList"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Product Detail Modal -->
     <div class="product-modal" id="productModal">
         <button class="close-modal" onclick="closeProductModal()">×</button>
-        <div class="product-detail-container" id="productDetailContent">
-            <!-- Content injected by JS -->
-        </div>
+        <div class="product-detail-container" id="productDetailContent"></div>
     </div>
 
-    <!-- Checkout Modal -->
     <div class="checkout-modal" id="checkoutModal">
         <div class="checkout-container">
             <div class="checkout-header">
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem;">Complete Your Order</h2>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem;">Complete Your Laptop Order</h2>
                 <button class="icon-btn" onclick="closeCheckout()" style="color: white; position: absolute; right: 1.5rem; top: 1.5rem;">
                     <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
@@ -2849,9 +2726,7 @@
 
                     <div class="order-summary-checkout">
                         <h3 style="margin-bottom: 1rem;">Order Summary</h3>
-                        <div id="checkoutItems">
-                            <!-- Items injected here -->
-                        </div>
+                        <div id="checkoutItems"></div>
                         <div class="summary-item total">
                             <span>Total</span>
                             <span id="checkoutTotal">₦0</span>
@@ -2877,7 +2752,6 @@
         </div>
     </div>
 
-    <!-- Cart Sidebar -->
     <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
@@ -2886,9 +2760,7 @@
                 <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Cart items injected here -->
-        </div>
+        <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer" id="cartFooter" style="display: none;">
             <div class="cart-summary">
                 <div class="summary-row">
@@ -2913,11 +2785,10 @@
         </div>
     </div>
 
-    <!-- Compare Bar -->
     <div class="compare-bar" id="compareBar">
         <div class="compare-container">
             <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-weight: 700;">Compare Products (<span id="compareCount">0</span>/3)</span>
+                <span style="font-weight: 700;">Compare Laptops (<span id="compareCount">0</span>/3)</span>
                 <div class="compare-items" id="compareItems"></div>
             </div>
             <div style="display: flex; gap: 1rem;">
@@ -2927,18 +2798,16 @@
         </div>
     </div>
 
-    <!-- Enhanced Help Chat Widget -->
     <div class="chat-widget">
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
                 <div>
                     <h3>How can we help?</h3>
-                    <p>Quick guides to using TechVault</p>
+                    <p>Quick guides to Axton Laptop Site</p>
                 </div>
                 <button class="chat-close" onclick="toggleChat()">×</button>
             </div>
             
-            <!-- Quick Action Buttons -->
             <div class="quick-actions">
                 <button class="quick-action-btn" onclick="sendQuickMessage('how-to-order')">🛒 How to Order</button>
                 <button class="quick-action-btn" onclick="sendQuickMessage('track-order')">📦 Track Order</button>
@@ -2948,7 +2817,7 @@
 
             <div class="chat-messages" id="chatMessages">
                 <div class="message received">
-                    <div>👋 Welcome to TechVault! I'm here to help you navigate our store.</div>
+                    <div>👋 Welcome to Axton Laptop Site! I'm here to help you find the perfect laptop.</div>
                     <div class="message-time">Just now</div>
                 </div>
                 <div class="message received">
@@ -2967,18 +2836,16 @@
         <button class="chat-button" onclick="toggleChat()" title="Get Help">❓</button>
     </div>
 
-    <!-- Toast -->
     <div class="toast" id="toast">
         <span id="toastIcon">✓</span>
         <span id="toastMessage">Success</span>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <h3>TechVault</h3>
-                <p>Premium technology marketplace based in London. Founded by Adegboye Desmond & Adegboye Olusola. We believe in quality, transparency, and exceptional service.</p>
+                <h3>Axton Laptop Site</h3>
+                <p>Premium laptop marketplace based in London. Founded by Adegboye Desmond & Adegboye Olusola. We believe in quality, transparency, and exceptional service.</p>
                 <div class="social-links">
                     <a href="#">f</a>
                     <a href="#">t</a>
@@ -2990,10 +2857,9 @@
                 <h4>Shop</h4>
                 <ul>
                     <li><a href="#" onclick="showPage('laptops')">All Laptops</a></li>
-                    <li><a href="#" onclick="showPage('phones')">All Phones</a></li>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="#">Best Sellers</a></li>
-                    <li><a href="#">Deals</a></li>
+                    <li><a href="#" onclick="filterByCategory('gaming')">Gaming Laptops</a></li>
+                    <li><a href="#" onclick="filterByCategory('business')">Business Laptops</a></li>
+                    <li><a href="#" onclick="filterByCategory('ultrabook')">Ultrabooks</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -3012,13 +2878,13 @@
                     <li>📱 07032386595</li>
                     <li>✈ @fajnigltd</li>
                     <li>📍 London, United Kingdom</li>
-                    <li>✉ support@techvault.ng</li>
+                    <li>✉ support@axtonlaptops.ng</li>
                     <li>🕐 Mon-Sat: 9AM - 6PM</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 TechVault. Led by Adegboye Desmond & Olusola. All rights reserved.</p>
+            <p>&copy; 2024 Axton Laptop Site. Led by Adegboye Desmond & Olusola. All rights reserved.</p>
             <div class="payment-methods">
                 <span>💳</span>
                 <span>🏦</span>
@@ -3029,74 +2895,35 @@
     </footer>
 
     <script>
-        // ==========================================
-        // CONFIGURATION - REPLACE THESE VALUES
-        // ==========================================
+        const SUPABASE_URL = 'https://mcruqzsntphalritlpen.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jcnVxenNudHBoYWxyaXRscGVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4ODMzMzYsImV4cCI6MjA4NTQ1OTMzNn0.UKtuj9XawxM7rSfnrOmDsFNN3sTMNuFN8z_6CJoA1s8';
         
-        // 1. SUPABASE CONFIGURATION
-        // Get these from your Supabase project settings
-        const SUPABASE_URL = 'https://your-project.supabase.co';
-        const SUPABASE_ANON_KEY = 'your-anon-key';
-        
-        // 2. FLUTTERWAVE CONFIGURATION
-        // Get your Public Key from Flutterwave Dashboard > Settings > API Keys
-        // Use 'FLWPUBK_TEST-XXXXXXXXXXXXXXXXXXXXXXXXXXXX-X' for testing
-        // Use 'FLWPUBK-XXXXXXXXXXXXXXXXXXXXXXXXXXXX-X' for live/production
-        const FLUTTERWAVE_PUBLIC_KEY = 'FLWPUBK_TEST-XXXXXXXXXXXXXXXXXXXXXXXXXXXX-X'; 
-        const IS_PAYMENT_LIVE = false; // Set to true when using live key
+        const FLUTTERWAVE_PUBLIC_KEY = 'FLWPUBK_TEST-b05d360ef5e6b3ae62e09eb7bfc27fe0-X'; 
+        const IS_PAYMENT_LIVE = true;
 
-        // ==========================================
-        // CURRENCY CONVERTER
-        // ==========================================
-        let currentCurrency = {
-            code: 'NGN',
-            symbol: '₦',
-            rate: 1
-        };
-
-        // Exchange rates (approximate - update as needed)
-        const exchangeRates = {
-            'NGN': 1,
-            'USD': 0.0013,
-            'GBP': 0.0010,
-            'EUR': 0.0012
-        };
+        let currentCurrency = { code: 'NGN', symbol: '₦', rate: 1 };
+        const exchangeRates = { 'NGN': 1, 'USD': 0.0013, 'GBP': 0.0010, 'EUR': 0.0012 };
 
         function toggleCurrencyDropdown() {
-            const dropdown = document.getElementById('currencyDropdown');
-            dropdown.classList.toggle('active');
+            document.getElementById('currencyDropdown').classList.toggle('active');
         }
 
         function changeCurrency(code, symbol, rate) {
             currentCurrency = { code, symbol, rate: exchangeRates[code] };
-            
-            // Update UI
             document.getElementById('currentCurrencySymbol').textContent = symbol;
             document.getElementById('currentCurrencyCode').textContent = code;
-            
-            // Update active state in dropdown
-            document.querySelectorAll('.currency-option').forEach(opt => {
-                opt.classList.remove('active');
-            });
+            document.querySelectorAll('.currency-option').forEach(opt => opt.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            
-            // Close dropdown
             document.getElementById('currencyDropdown').classList.remove('active');
-            
-            // Refresh displays
             renderProducts();
             renderFeaturedProducts();
             updateCart();
-            
-            // Save preference
             localStorage.setItem('techvault_currency', JSON.stringify(currentCurrency));
-            
             showToast(`Currency changed to ${code}`);
         }
 
         function formatPrice(priceInNaira) {
             const converted = priceInNaira * currentCurrency.rate;
-            
             if (currentCurrency.code === 'NGN') {
                 return `₦${priceInNaira.toLocaleString()}`;
             } else {
@@ -3104,16 +2931,6 @@
             }
         }
 
-        function formatPriceWithConversion(priceInNaira) {
-            const converted = priceInNaira * currentCurrency.rate;
-            const formatted = currentCurrency.code === 'NGN' 
-                ? `₦${priceInNaira.toLocaleString()}`
-                : `${currentCurrency.symbol}${converted.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            
-            return formatted;
-        }
-
-        // Load saved currency preference
         function loadCurrencyPreference() {
             const saved = localStorage.getItem('techvault_currency');
             if (saved) {
@@ -3123,29 +2940,28 @@
             }
         }
 
-        // ==========================================
-        // HELP CHAT SYSTEM
-        // ==========================================
         const helpResponses = {
             'how-to-order': {
-                title: 'How to Place an Order',
+                title: 'How to Order a Laptop',
                 message: `🛒 <strong>Ordering is easy:</strong><br><br>
-                1. Browse products & click "Add to Cart"<br>
-                2. Click the cart icon (top right)<br>
-                3. Review items & click "Checkout"<br>
-                4. Fill your delivery details<br>
-                5. Pay securely with Flutterwave<br>
-                6. Receive order confirmation via email<br><br>
-                Need help? Call 07032386595`
+                1. Browse our 60+ laptop models<br>
+                2. Click "Add to Cart" on your chosen laptop<br>
+                3. Click the cart icon (top right)<br>
+                4. Review items & click "Checkout"<br>
+                5. Fill your delivery details<br>
+                6. Pay securely with Flutterwave<br>
+                7. Receive confirmation & track your laptop<br><br>
+                Need help choosing? Call 07032386595`
             },
             'track-order': {
-                title: 'Track Your Order',
+                title: 'Track Your Laptop',
                 message: `📦 <strong>Tracking Steps:</strong><br><br>
                 1. Go to "Track Order" page<br>
-                2. Enter your Order ID (e.g., TV-123456)<br>
-                3. See real-time location & status<br><br>
-                You'll receive GPS updates via WhatsApp too!<br>
-                Order ID is in your confirmation email.`
+                2. Enter your Order ID (e.g., AX-123456)<br>
+                3. See real-time GPS location<br>
+                4. Watch your laptop travel to you!<br><br>
+                You'll receive WhatsApp updates too.<br>
+                ID is in your confirmation email.`
             },
             'payment': {
                 title: 'Payment Methods',
@@ -3155,17 +2971,17 @@
                 • <strong>USSD</strong> (*123# etc)<br>
                 • <strong>Mobile Money</strong><br>
                 • <strong>Apple Pay</strong> & <strong>Google Pay</strong><br><br>
-                <small>All payments secured by Flutterwave 256-bit SSL</small>`
+                <small>All payments secured by Flutterwave 256-bit SSL encryption</small>`
             },
             'contact': {
-                title: 'Contact Us',
+                title: 'Contact Axton Laptop Site',
                 message: `📞 <strong>We're here to help!</strong><br><br>
                 <strong>WhatsApp:</strong> 07032386595<br>
                 <strong>Telegram:</strong> @fajnigltd<br>
-                <strong>Email:</strong> support@techvault.ng<br>
+                <strong>Email:</strong> support@axtonlaptops.ng<br>
                 <strong>Location:</strong> London, UK<br><br>
                 <strong>Hours:</strong> Mon-Sat 9AM-6PM<br>
-                <em>Usually responds in 5 minutes!</em>`
+                <em>Desmond & Olusola typically reply in 5 minutes!</em>`
             },
             'default': {
                 title: 'Support',
@@ -3178,14 +2994,8 @@
 
         function sendQuickMessage(type) {
             const response = helpResponses[type] || helpResponses['default'];
-            
-            // Add user message
             addMessage(response.title, 'sent');
-            
-            // Show typing indicator
             showTypingIndicator();
-            
-            // Send response after delay
             setTimeout(() => {
                 removeTypingIndicator();
                 addMessage(response.message, 'received');
@@ -3195,14 +3005,9 @@
         function addMessage(text, type) {
             const messagesDiv = document.getElementById('chatMessages');
             const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${type}`;
-            messageDiv.innerHTML = `
-                <div>${text}</div>
-                <div class="message-time">${time}</div>
-            `;
-            
+            messageDiv.innerHTML = `<div>${text}</div><div class="message-time">${time}</div>`;
             messagesDiv.appendChild(messageDiv);
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
@@ -3212,11 +3017,7 @@
             const typingDiv = document.createElement('div');
             typingDiv.id = 'typingIndicator';
             typingDiv.className = 'typing-indicator';
-            typingDiv.innerHTML = `
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-            `;
+            typingDiv.innerHTML = `<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>`;
             messagesDiv.appendChild(typingDiv);
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
@@ -3226,9 +3027,6 @@
             if (indicator) indicator.remove();
         }
 
-        // ==========================================
-        // SUPABASE CONFIGURATION
-        // ==========================================
         let supabaseClient;
         
         function initSupabase() {
@@ -3245,24 +3043,19 @@
             }
         }
 
-        // ==========================================
-        // FLUTTERWAVE PAYMENT (ACTIVE & READY)
-        // ==========================================
-        
-        // Verify configuration on load
         window.addEventListener('load', () => {
-            if (FLUTTERWAVE_PUBLIC_KEY.includes('XXXXXXXX')) {
+            if (FLUTTERWAVE_PUBLIC_KEY.includes('YOUR-LIVE-KEY') || FLUTTERWAVE_PUBLIC_KEY.includes('TEST')) {
                 document.getElementById('flutterwaveConfigWarning').style.display = 'block';
-                document.getElementById('payButton').textContent = 'Configure Payment First';
+                document.getElementById('payButton').textContent = 'Add Live Payment Key First';
                 document.getElementById('payButton').disabled = true;
                 document.getElementById('payButton').style.opacity = '0.5';
+                console.warn('⚠️ WARNING: Using test key or placeholder. Replace with FLWPUBK-live-... for production.');
             } else {
-                console.log('✅ Flutterwave Ready');
-                if (!IS_PAYMENT_LIVE) {
+                console.log('✅ Flutterwave Live Mode Ready');
+                if (IS_PAYMENT_LIVE && !FLUTTERWAVE_PUBLIC_KEY.includes('YOUR-LIVE-KEY')) {
                     document.getElementById('paymentModeIndicator').classList.add('active');
                 }
             }
-            
             loadCurrencyPreference();
         });
 
@@ -3271,24 +3064,18 @@
                 showToast('Your cart is empty');
                 return;
             }
-            
-            // Check if Flutterwave is configured
-            if (FLUTTERWAVE_PUBLIC_KEY.includes('XXXXXXXX')) {
-                showToast('⚠️ Payment not configured. Please add your Flutterwave keys.');
+            if (FLUTTERWAVE_PUBLIC_KEY.includes('YOUR-LIVE-KEY') || FLUTTERWAVE_PUBLIC_KEY.includes('TEST')) {
+                showToast('⚠️ Please configure your LIVE Flutterwave key first');
                 return;
             }
-            
-            // Populate checkout items
             const checkoutItems = document.getElementById('checkoutItems');
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
             checkoutItems.innerHTML = cart.map(item => `
                 <div class="summary-item">
                     <span>${item.name} x${item.quantity}</span>
                     <span>${formatPrice(item.price * item.quantity)}</span>
                 </div>
             `).join('');
-            
             document.getElementById('checkoutTotal').textContent = formatPrice(total);
             document.getElementById('checkoutModal').classList.add('active');
             toggleCart();
@@ -3296,18 +3083,14 @@
 
         async function initiatePayment(e) {
             e.preventDefault();
-            
             const name = document.getElementById('customerName').value;
             const email = document.getElementById('customerEmail').value;
             const phone = document.getElementById('customerPhone').value;
             const address = document.getElementById('customerAddress').value;
             const city = document.getElementById('customerCity').value || 'London';
             const postal = document.getElementById('customerPostal').value || '';
-            
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const tx_ref = `TV-${Date.now()}`;
-            
-            // Prepare order data
+            const tx_ref = `AX-${Date.now()}`;
             const orderData = {
                 order_id: tx_ref,
                 customer_name: name,
@@ -3316,44 +3099,34 @@
                 customer_address: `${address}, ${city}, ${postal}`,
                 items: cart,
                 total_amount: total,
-                currency: 'NGN', // Always store in NGN
+                currency: 'NGN',
                 status: 'pending',
                 payment_status: 'pending',
                 created_at: new Date().toISOString()
             };
             
             try {
-                // Save to Supabase if available
                 if (supabaseClient) {
-                    const { data, error } = await supabaseClient
-                        .from('orders')
-                        .insert([orderData]);
+                    const { data, error } = await supabaseClient.from('orders').insert([orderData]);
                     if (error) throw error;
                 } else {
-                    // Local storage fallback
                     localStorage.setItem('pending_order_' + tx_ref, JSON.stringify(orderData));
                 }
                 
-                // Initialize Flutterwave Checkout
                 FlutterwaveCheckout({
                     public_key: FLUTTERWAVE_PUBLIC_KEY,
                     tx_ref: tx_ref,
                     amount: total,
-                    currency: "NGN", // Flutterwave works best with NGN for Nigerian customers
+                    currency: "NGN",
                     country: "NG",
                     payment_options: "card, banktransfer, ussd, mobilemoney, account, mpesa",
-                    customer: {
-                        email: email,
-                        phone_number: phone,
-                        name: name,
-                    },
+                    customer: { email: email, phone_number: phone, name: name },
                     customizations: {
-                        title: "TechVault Pro",
-                        description: "Payment for laptop/phone purchase",
-                        logo: "https://techvault.ng/logo.png", // Replace with your logo
+                        title: "Axton Laptop Site",
+                        description: "Payment for laptop purchase",
+                        logo: "https://axtonlaptops.ng/logo.png",
                     },
                     callback: function(data) {
-                        console.log("Payment callback:", data);
                         if (data.status === "successful") {
                             verifyPayment(data, orderData);
                         } else {
@@ -3361,11 +3134,9 @@
                         }
                     },
                     onclose: function() {
-                        // Don't show toast if payment was successful (already handled in callback)
                         console.log("Payment modal closed");
                     }
                 });
-                
             } catch (error) {
                 console.error('Order creation failed:', error);
                 showToast('Failed to initialize payment. Please try again.');
@@ -3374,7 +3145,6 @@
 
         async function verifyPayment(paymentData, orderData) {
             try {
-                // Update order status
                 const updateData = {
                     status: 'paid',
                     payment_status: 'completed',
@@ -3382,49 +3152,32 @@
                     transaction_id: paymentData.transaction_id,
                     paid_at: new Date().toISOString()
                 };
-                
                 if (supabaseClient) {
-                    const { error } = await supabaseClient
-                        .from('orders')
-                        .update(updateData)
-                        .eq('order_id', orderData.order_id);
+                    const { error } = await supabaseClient.from('orders').update(updateData).eq('order_id', orderData.order_id);
                     if (error) throw error;
                 } else {
-                    // Update local storage
                     orderData.status = 'paid';
                     orderData.payment_status = 'completed';
                     localStorage.setItem('order_' + orderData.order_id, JSON.stringify(orderData));
                     localStorage.removeItem('pending_order_' + orderData.order_id);
                 }
-                
-                // Clear cart
                 cart = [];
                 saveCart();
                 updateCart();
                 closeCheckout();
-                
-                // Send WhatsApp notification simulation
-                const message = `New Order ${orderData.order_id}! Total: ₦${orderData.total_amount}. Customer: ${orderData.customer_name}. Call: ${orderData.customer_phone}`;
+                const message = `New Laptop Order ${orderData.order_id}! Total: ₦${orderData.total_amount}. Customer: ${orderData.customer_name}. Call: ${orderData.customer_phone}`;
                 console.log('WhatsApp notification:', message);
-                
-                showToast('🎉 Payment successful! Order confirmed.', 'success');
-                
-                // Redirect to tracking
+                showToast('🎉 Payment successful! Laptop order confirmed.', 'success');
                 setTimeout(() => {
                     document.getElementById('trackingInput').value = orderData.order_id;
                     showPage('track');
                     trackOrder();
                 }, 2000);
-                
             } catch (error) {
                 console.error('Verification error:', error);
                 showToast('Payment received! We will verify shortly.');
             }
         }
-
-        // ==========================================
-        // EXISTING FUNCTIONS (All kept intact)
-        // ==========================================
 
         function closeCheckout() {
             document.getElementById('checkoutModal').classList.remove('active');
@@ -3443,14 +3196,7 @@
                 window.scrollTo(0, 0);
             } else if(page === 'laptops') {
                 document.getElementById('productsPage').classList.add('active');
-                currentFilter = 'laptop';
-                document.getElementById('pageTitle').textContent = 'Premium Laptops';
-                renderProducts();
-                window.scrollTo(0, 0);
-            } else if(page === 'phones') {
-                document.getElementById('productsPage').classList.add('active');
-                currentFilter = 'phone';
-                document.getElementById('pageTitle').textContent = 'Smartphones';
+                document.getElementById('pageTitle').textContent = 'All Laptops (60)';
                 renderProducts();
                 window.scrollTo(0, 0);
             } else if(page === 'track') {
@@ -3464,7 +3210,7 @@
 
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
-            let filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+            let filtered = products;
             
             if(currentSort === 'price-low') {
                 filtered.sort((a, b) => a.price - b.price);
@@ -3474,12 +3220,12 @@
                 filtered.sort((a, b) => b.rating - a.rating);
             }
 
-            document.getElementById('resultsCount').textContent = `Showing ${filtered.length} products`;
+            document.getElementById('resultsCount').textContent = `Showing ${filtered.length} laptops`;
             grid.innerHTML = filtered.map(product => createProductCard(product)).join('');
         }
 
         function renderFeaturedProducts() {
-            const featured = products.slice(0, 4);
+            const featured = products.slice(0, 8);
             document.getElementById('featuredProducts').innerHTML = featured.map(product => createProductCard(product)).join('');
         }
 
@@ -3502,7 +3248,7 @@
                             <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</span>
                             <span class="rating-count">(${product.reviews})</span>
                         </div>
-                        <p class="product-specs">${Object.values(product.specs)[0]} • ${Object.values(product.specs)[1]}</p>
+                        <p class="product-specs">${product.specs.processor} • ${product.specs.ram} • ${product.specs.storage}</p>
                         <div class="product-footer">
                             <div class="product-price">
                                 <span class="current-price">${formatPrice(product.price)}</span>
@@ -3535,7 +3281,7 @@
                             <span>•</span>
                             <span>${product.inStock ? '✓ In Stock' : 'Out of Stock'}</span>
                             <span>•</span>
-                            <span>SKU: TV-${product.id}00${product.id}</span>
+                            <span>SKU: AX-${product.id}00${product.id}</span>
                         </div>
                     </div>
                     
@@ -3582,12 +3328,11 @@
                                 </div>
                                 <span class="stars">★★★★★</span>
                             </div>
-                            <p>Amazing product! Fast delivery and excellent quality. Desmond was very helpful in answering my questions before purchase.</p>
+                            <p>Amazing laptop! Fast delivery and excellent quality. Desmond was very helpful in answering my questions before purchase.</p>
                         </div>
                     </div>
                 </div>
             `;
-            
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -3616,11 +3361,9 @@
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
             const searchResults = document.getElementById('searchResults');
-            
             searchInput.addEventListener('focus', () => {
                 if(searchInput.value.length > 0) searchResults.classList.add('active');
             });
-            
             document.addEventListener('click', (e) => {
                 if(!e.target.closest('.search-box')) {
                     searchResults.classList.remove('active');
@@ -3630,16 +3373,14 @@
 
         function handleSearch(query) {
             const resultsDiv = document.getElementById('searchResults');
-            
             if(query.length < 2) {
                 resultsDiv.classList.remove('active');
                 return;
             }
-            
             const filtered = products.filter(p => 
                 p.name.toLowerCase().includes(query.toLowerCase()) ||
                 p.brand.toLowerCase().includes(query.toLowerCase()) ||
-                p.category.toLowerCase().includes(query.toLowerCase())
+                p.specs.processor.toLowerCase().includes(query.toLowerCase())
             ).slice(0, 5);
             
             if(filtered.length > 0) {
@@ -3652,9 +3393,9 @@
                         </div>
                     </div>
                 `).join('');
-                resultsResults.classList.add('active');
+                resultsDiv.classList.add('active');
             } else {
-                resultsDiv.innerHTML = '<div class="search-item" style="color: var(--gray);">No products found</div>';
+                resultsDiv.innerHTML = '<div class="search-item" style="color: var(--gray);">No laptops found</div>';
                 resultsDiv.classList.add('active');
             }
         }
@@ -3662,13 +3403,11 @@
         function addToCart(productId, showNotification = true) {
             const product = products.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
-            
             if(existingItem) {
                 existingItem.quantity++;
             } else {
                 cart.push({ ...product, quantity: 1 });
             }
-            
             saveCart();
             updateCart();
             if(showNotification) showToast(`${product.name} added to cart!`);
@@ -3694,14 +3433,13 @@
         }
 
         function saveCart() {
-            localStorage.setItem('techvault_cart', JSON.stringify(cart));
+            localStorage.setItem('axton_cart', JSON.stringify(cart));
         }
 
         function updateCart() {
             const cartCount = document.getElementById('cartCount');
             const cartItems = document.getElementById('cartItems');
             const cartFooter = document.getElementById('cartFooter');
-            
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             
@@ -3712,8 +3450,8 @@
                     <div style="text-align: center; padding: 4rem 2rem;">
                         <div style="font-size: 4rem; margin-bottom: 1rem;">🛒</div>
                         <h3>Your cart is empty</h3>
-                        <p style="color: var(--gray); margin: 1rem 0;">Add some premium tech to get started</p>
-                        <button class="btn btn-primary" onclick="toggleCart(); showPage('laptops')">Start Shopping</button>
+                        <p style="color: var(--gray); margin: 1rem 0;">Add a premium laptop to get started</p>
+                        <button class="btn btn-primary" onclick="toggleCart(); showPage('laptops')">Browse Laptops</button>
                     </div>
                 `;
                 cartFooter.style.display = 'none';
@@ -3723,7 +3461,7 @@
                         <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                         <div class="cart-item-details">
                             <div class="cart-item-title">${item.name}</div>
-                            <div class="cart-item-variant">${item.specs.processor || item.specs.display}</div>
+                            <div class="cart-item-variant">${item.specs.processor} • ${item.specs.ram}</div>
                             <div class="cart-item-price">${formatPrice(item.price)}</div>
                             <div class="cart-item-actions">
                                 <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">−</button>
@@ -3736,7 +3474,6 @@
                         </div>
                     </div>
                 `).join('');
-                
                 document.getElementById('cartSubtotal').textContent = formatPrice(subtotal);
                 document.getElementById('cartTotal').textContent = formatPrice(subtotal);
                 cartFooter.style.display = 'block';
@@ -3747,7 +3484,6 @@
             const sidebar = document.getElementById('cartSidebar');
             const overlay = document.getElementById('cartOverlay');
             const isOpen = sidebar.classList.contains('active');
-            
             if(isOpen) {
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
@@ -3763,7 +3499,6 @@
         function toggleWishlistItem(productId, event) {
             event.stopPropagation();
             const index = wishlist.indexOf(productId);
-            
             if(index > -1) {
                 wishlist.splice(index, 1);
                 showToast('Removed from wishlist');
@@ -3771,8 +3506,7 @@
                 wishlist.push(productId);
                 showToast('Added to wishlist! ❤️');
             }
-            
-            localStorage.setItem('techvault_wishlist', JSON.stringify(wishlist));
+            localStorage.setItem('axton_wishlist', JSON.stringify(wishlist));
             updateWishlist();
             renderProducts();
             renderFeaturedProducts();
@@ -3796,12 +3530,10 @@
                 showToast('Already in compare list');
                 return;
             }
-            
             if(compareList.length >= 3) {
-                showToast('You can compare up to 3 products');
+                showToast('You can compare up to 3 laptops');
                 return;
             }
-            
             compareList.push(productId);
             updateCompareBar();
             showToast('Added to comparison');
@@ -3811,9 +3543,7 @@
             const bar = document.getElementById('compareBar');
             const itemsDiv = document.getElementById('compareItems');
             const count = document.getElementById('compareCount');
-            
             count.textContent = compareList.length;
-            
             if(compareList.length > 0) {
                 bar.classList.add('active');
                 itemsDiv.innerHTML = compareList.map(id => {
@@ -3837,13 +3567,11 @@
 
         function showComparison() {
             if(compareList.length < 2) {
-                showToast('Add at least 2 products to compare');
+                showToast('Add at least 2 laptops to compare');
                 return;
             }
-            
             const compareProducts = compareList.map(id => products.find(p => p.id === id));
-            let html = '<div style="padding: 2rem;"><h2 style="margin-bottom: 2rem;">Product Comparison</h2><div style="display: grid; grid-template-columns: repeat(' + compareProducts.length + ', 1fr); gap: 2rem;">';
-            
+            let html = '<div style="padding: 2rem;"><h2 style="margin-bottom: 2rem;">Laptop Comparison</h2><div style="display: grid; grid-template-columns: repeat(' + compareProducts.length + ', 1fr); gap: 2rem;">';
             compareProducts.forEach(p => {
                 html += `<div style="text-align: center;">
                     <img src="${p.image}" style="width: 100%; max-width: 200px; border-radius: 12px; margin-bottom: 1rem;">
@@ -3852,9 +3580,7 @@
                     <button class="btn btn-primary btn-sm" onclick="addToCart(${p.id})">Add to Cart</button>
                 </div>`;
             });
-            
             html += '</div><table style="width: 100%; margin-top: 3rem; border-collapse: collapse;">';
-            
             const specs = Object.keys(compareProducts[0].specs);
             specs.forEach(spec => {
                 html += `<tr style="border-bottom: 1px solid var(--border);">
@@ -3864,9 +3590,7 @@
                 });
                 html += '</tr>';
             });
-            
             html += '</table></div>';
-            
             document.getElementById('productDetailContent').innerHTML = html;
             document.getElementById('productModal').classList.add('active');
         }
@@ -3874,6 +3598,10 @@
         function toggleChat() {
             const chatWindow = document.getElementById('chatWindow');
             chatWindow.classList.toggle('active');
+        }
+        
+        function openChat() {
+            document.getElementById('chatWindow').classList.add('active');
         }
 
         function handleChatKey(event) {
@@ -3884,31 +3612,20 @@
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
             if(!message) return;
-            
             addMessage(message, 'sent');
             input.value = '';
-            
-            // Show typing
             showTypingIndicator();
-            
-            // Auto-reply logic
             setTimeout(() => {
                 removeTypingIndicator();
-                
                 let response = helpResponses['default'];
                 const lowerMsg = message.toLowerCase();
-                
                 if(lowerMsg.includes('order') || lowerMsg.includes('buy')) response = helpResponses['how-to-order'];
                 else if(lowerMsg.includes('track') || lowerMsg.includes('where')) response = helpResponses['track-order'];
                 else if(lowerMsg.includes('pay') || lowerMsg.includes('card') || lowerMsg.includes('money')) response = helpResponses['payment'];
                 else if(lowerMsg.includes('contact') || lowerMsg.includes('call') || lowerMsg.includes('phone')) response = helpResponses['contact'];
                 else if(lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
-                    response = {
-                        title: 'Hello!',
-                        message: '👋 Hi there! Welcome to TechVault. How can I help you today? Choose a quick option above or ask me anything!'
-                    };
+                    response = { title: 'Hello!', message: '👋 Hi there! Welcome to Axton Laptop Site. How can I help you today? Choose a quick option above or ask me anything!' };
                 }
-                
                 addMessage(response.message, 'received');
             }, 1500);
         }
@@ -3917,11 +3634,9 @@
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toastMessage');
             const toastIcon = document.getElementById('toastIcon');
-            
             toastMessage.textContent = message;
             toastIcon.textContent = type === 'success' ? '✓' : 'ℹ';
             toast.className = 'toast show' + (type === 'success' ? ' success' : '');
-            
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
@@ -3938,9 +3653,15 @@
             });
         }
 
-        function toggleCategory(cat) {
+        function filterByCategory(cat) {
             currentFilter = cat;
-            renderProducts();
+            if (cat === 'all') {
+                renderProducts();
+            } else {
+                const filtered = products.filter(p => p.category === cat || p.subCategory === cat);
+                document.getElementById('productsGrid').innerHTML = filtered.map(product => createProductCard(product)).join('');
+                document.getElementById('resultsCount').textContent = `Showing ${filtered.length} laptops`;
+            }
         }
 
         function sortProducts(sortType) {
@@ -3959,16 +3680,28 @@
         }
 
         function filterByBrand(brand) {
+            const filtered = products.filter(p => p.brand === brand);
+            document.getElementById('productsGrid').innerHTML = filtered.map(product => createProductCard(product)).join('');
+            document.getElementById('resultsCount').textContent = `Showing ${filtered.length} ${brand} laptops`;
             showToast(`Filtered by ${brand}`);
         }
 
         function applyPriceFilter() {
             const min = document.getElementById('minPrice').value;
             const max = document.getElementById('maxPrice').value;
+            const filtered = products.filter(p => {
+                const price = p.price;
+                return (!min || price >= min) && (!max || price <= max);
+            });
+            document.getElementById('productsGrid').innerHTML = filtered.map(product => createProductCard(product)).join('');
+            document.getElementById('resultsCount').textContent = `Showing ${filtered.length} laptops`;
             showToast(`Price filter: ₦${min || 0} - ₦${max || '∞'}`);
         }
 
         function filterByRating(minRating) {
+            const filtered = products.filter(p => p.rating >= minRating);
+            document.getElementById('productsGrid').innerHTML = filtered.map(product => createProductCard(product)).join('');
+            document.getElementById('resultsCount').textContent = `Showing ${filtered.length} laptops`;
             showToast(`Showing ${minRating}★ and above`);
         }
 
@@ -3979,7 +3712,7 @@
             
             if(tab === 'wishlist') {
                 if(wishlist.length === 0) {
-                    content.innerHTML = '<h2>My Wishlist</h2><p style="color: var(--gray); margin-top: 2rem;">Your wishlist is empty. Start adding products you love!</p>';
+                    content.innerHTML = '<h2>My Wishlist</h2><p style="color: var(--gray); margin-top: 2rem;">Your wishlist is empty. Start adding laptops you love!</p>';
                 } else {
                     const wishlistProducts = products.filter(p => wishlist.includes(p.id));
                     content.innerHTML = '<h2 style="margin-bottom: 2rem;">My Wishlist</h2><div class="products-grid">' + wishlistProducts.map(p => createProductCard(p)).join('') + '</div>';
@@ -3992,7 +3725,6 @@
             }
         }
 
-        // Close dropdowns when clicking outside
         document.addEventListener('click', (e) => {
             if(!e.target.closest('.currency-converter')) {
                 document.getElementById('currencyDropdown').classList.remove('active');
@@ -4010,548 +3742,33 @@
             }
         });
 
-        // ==========================================
-        // PRODUCT DATABASE (30 Products)
-        // ==========================================
-        const products = [
-            // LAPTOPS (15)
-            {
-                id: 1,
-                name: "MacBook Air M2",
-                category: "laptop",
-                brand: "Apple",
-                price: 950000,
-                originalPrice: 1100000,
-                image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&h=400&fit=crop",
-                gallery: [
-                    "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&h=400&fit=crop",
-                    "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop"
-                ],
-                specs: {
-                    processor: "Apple M2 chip",
-                    ram: "8GB Unified Memory",
-                    storage: "256GB SSD",
-                    display: "13.6-inch Liquid Retina",
-                    battery: "Up to 18 hours",
-                    weight: "1.24 kg"
-                },
-                description: "Supercharged by M2. Strikingly thin and fast so you can work, play, or create just about anything — anywhere.",
-                rating: 4.9,
-                reviews: 128,
-                badge: "Best Seller",
-                inStock: true
-            },
-            {
-                id: 2,
-                name: "MacBook Pro 14 M2 Pro",
-                category: "laptop",
-                brand: "Apple",
-                price: 1450000,
-                originalPrice: 1650000,
-                image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop",
-                specs: { processor: "M2 Pro", ram: "16GB", storage: "512GB SSD", display: "14.2-inch XDR", battery: "18 hours", weight: "1.6 kg" },
-                description: "The most advanced Mac laptops for demanding workflows.",
-                rating: 4.9,
-                reviews: 89,
-                badge: "Pro Choice",
-                inStock: true
-            },
-            {
-                id: 3,
-                name: "Dell XPS 13 Plus",
-                category: "laptop",
-                brand: "Dell",
-                price: 780000,
-                originalPrice: 920000,
-                image: "https://images.unsplash.com/photo-1593642632823-8f78536788c6?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "512GB SSD", display: "13.4-inch OLED Touch", battery: "12 hours", weight: "1.26 kg" },
-                description: "Modern design with seamless glass touchpad and capacitive touch function row.",
-                rating: 4.7,
-                reviews: 64,
-                badge: "Premium",
-                inStock: true
-            },
-            {
-                id: 4,
-                name: "Dell XPS 15",
-                category: "laptop",
-                brand: "Dell",
-                price: 920000,
-                originalPrice: 1100000,
-                image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-12700H", ram: "16GB", storage: "1TB SSD", display: "15.6-inch FHD+", battery: "13 hours", weight: "1.86 kg" },
-                description: "Powerhouse performance with stunning InfinityEdge display.",
-                rating: 4.8,
-                reviews: 52,
-                badge: null,
-                inStock: true
-            },
-            {
-                id: 5,
-                name: "HP Spectre x360",
-                category: "laptop",
-                brand: "HP",
-                price: 680000,
-                originalPrice: 820000,
-                image: "https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-1255U", ram: "16GB", storage: "512GB SSD", display: "13.5-inch 3K2K Touch", battery: "16 hours", weight: "1.36 kg" },
-                description: "Convertible elegance meets powerhouse performance.",
-                rating: 4.6,
-                reviews: 43,
-                badge: "2-in-1",
-                inStock: true
-            },
-            {
-                id: 6,
-                name: "HP Envy 16",
-                category: "laptop",
-                brand: "HP",
-                price: 750000,
-                originalPrice: 890000,
-                image: "https://images.unsplash.com/photo-1589561084283-930aa7b1ce50?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-12700H", ram: "16GB", storage: "1TB SSD", display: "16-inch 2.5K", battery: "11 hours", weight: "2.1 kg" },
-                description: "Create on-the-go with RTX 3060 graphics and color-accurate display.",
-                rating: 4.7,
-                reviews: 38,
-                badge: "Creator",
-                inStock: true
-            },
-            {
-                id: 7,
-                name: "Lenovo ThinkPad X1 Carbon Gen 10",
-                category: "laptop",
-                brand: "Lenovo",
-                price: 850000,
-                originalPrice: 980000,
-                image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-1265U", ram: "16GB", storage: "512GB SSD", display: "14-inch 4K", battery: "15 hours", weight: "1.12 kg" },
-                description: "Ultralight business powerhouse with legendary ThinkPad reliability.",
-                rating: 4.8,
-                reviews: 156,
-                badge: "Business",
-                inStock: true
-            },
-            {
-                id: 8,
-                name: "Lenovo Yoga 9i",
-                category: "laptop",
-                brand: "Lenovo",
-                price: 720000,
-                originalPrice: 850000,
-                image: "https://images.unsplash.com/photo-1527434065213-849f5e9607ea?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "1TB SSD", display: "14-inch OLED 4K", battery: "14 hours", weight: "1.4 kg" },
-                description: "Premium 2-in-1 with rotating soundbar hinge for immersive audio.",
-                rating: 4.7,
-                reviews: 47,
-                badge: "Convertible",
-                inStock: true
-            },
-            {
-                id: 9,
-                name: "ASUS ZenBook Pro 14 Duo",
-                category: "laptop",
-                brand: "ASUS",
-                price: 820000,
-                originalPrice: 950000,
-                image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i9-12900H", ram: "32GB", storage: "1TB SSD", display: "14.5-inch 2.8K OLED + ScreenPad", battery: "9 hours", weight: "1.75 kg" },
-                description: "Dual-screen innovation for creative professionals.",
-                rating: 4.6,
-                reviews: 29,
-                badge: "Innovation",
-                inStock: true
-            },
-            {
-                id: 10,
-                name: "ASUS ROG Zephyrus G14",
-                category: "laptop",
-                brand: "ASUS",
-                price: 980000,
-                originalPrice: 1150000,
-                image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop",
-                specs: { processor: "AMD Ryzen 9 6900HS", ram: "16GB", storage: "1TB SSD", display: "14-inch 120Hz QHD", battery: "10 hours", weight: "1.72 kg" },
-                description: "Compact gaming powerhouse with AniMe Matrix display.",
-                rating: 4.8,
-                reviews: 92,
-                badge: "Gaming",
-                inStock: true
-            },
-            {
-                id: 11,
-                name: "Microsoft Surface Laptop 5",
-                category: "laptop",
-                brand: "Microsoft",
-                price: 650000,
-                originalPrice: 780000,
-                image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-1255U", ram: "16GB", storage: "512GB SSD", display: "13.5-inch PixelSense Touch", battery: "18 hours", weight: "1.27 kg" },
-                description: "Sleek design meets Windows 11 perfection.",
-                rating: 4.6,
-                reviews: 67,
-                badge: null,
-                inStock: true
-            },
-            {
-                id: 12,
-                name: "Acer Swift 5",
-                category: "laptop",
-                brand: "Acer",
-                price: 580000,
-                originalPrice: 690000,
-                image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "1TB SSD", display: "14-inch Touch", battery: "12 hours", weight: "1.2 kg" },
-                description: "Ultralight antimicrobial design for mobile professionals.",
-                rating: 4.5,
-                reviews: 34,
-                badge: "Ultralight",
-                inStock: true
-            },
-            {
-                id: 13,
-                name: "Razer Blade 15",
-                category: "laptop",
-                brand: "Razer",
-                price: 1350000,
-                originalPrice: 1550000,
-                image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-12800H", ram: "16GB", storage: "1TB SSD", display: "15.6-inch 240Hz QHD", battery: "6 hours", weight: "2.01 kg" },
-                description: "The ultimate premium gaming laptop with CNC aluminum chassis.",
-                rating: 4.7,
-                reviews: 78,
-                badge: "Premium",
-                inStock: true
-            },
-            {
-                id: 14,
-                name: "LG Gram 17",
-                category: "laptop",
-                brand: "LG",
-                price: 780000,
-                originalPrice: 920000,
-                image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "1TB SSD", display: "17-inch WQXGA", battery: "19 hours", weight: "1.35 kg" },
-                description: "Impossibly light 17-inch laptop for maximum productivity.",
-                rating: 4.6,
-                reviews: 41,
-                badge: "Lightweight",
-                inStock: true
-            },
-            {
-                id: 15,
-                name: "Samsung Galaxy Book3 Ultra",
-                category: "laptop",
-                brand: "Samsung",
-                price: 1120000,
-                originalPrice: 1300000,
-                image: "https://images.unsplash.com/photo-1531297424006-640b3dbde7ed?w=600&h=400&fit=crop",
-                specs: { processor: "Intel i9-13900H", ram: "32GB", storage: "1TB SSD", display: "16-inch 3K AMOLED 120Hz", battery: "14 hours", weight: "1.79 kg" },
-                description: "Samsung's most powerful Galaxy Book with RTX 4070.",
-                rating: 4.8,
-                reviews: 23,
-                badge: "New",
-                inStock: true
-            },
-
-            // PHONES (15)
-            {
-                id: 16,
-                name: "iPhone 15 Pro Max",
-                category: "phone",
-                brand: "Apple",
-                price: 1250000,
-                originalPrice: 1450000,
-                image: "https://images.unsplash.com/photo-1696446701796-da61225697cc?w=600&h=400&fit=crop",
-                specs: { display: "6.7-inch Super Retina XDR", processor: "A17 Pro", camera: "48MP Main + 5x Telephoto", storage: "256GB", battery: "29 hours video", weight: "221g" },
-                description: "Titanium design. A17 Pro chip. Action button. 5x Telephoto camera.",
-                rating: 4.9,
-                reviews: 234,
-                badge: "Latest",
-                inStock: true
-            },
-            {
-                id: 17,
-                name: "iPhone 15 Pro",
-                category: "phone",
-                brand: "Apple",
-                price: 1100000,
-                originalPrice: 1300000,
-                image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=400&fit=crop",
-                specs: { display: "6.1-inch Super Retina XDR", processor: "A17 Pro", camera: "48MP Main + 3x Telephoto", storage: "128GB", battery: "23 hours video", weight: "187g" },
-                description: "The most powerful iPhone with titanium design.",
-                rating: 4.9,
-                reviews: 189,
-                badge: "Flagship",
-                inStock: true
-            },
-            {
-                id: 18,
-                name: "iPhone 14 Pro Max",
-                category: "phone",
-                brand: "Apple",
-                price: 950000,
-                originalPrice: 1150000,
-                image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?w=600&h=400&fit=crop",
-                specs: { display: "6.7-inch Super Retina XDR", processor: "A16 Bionic", camera: "48MP Main", storage: "256GB", battery: "29 hours video", weight: "240g" },
-                description: "Dynamic Island. 48MP Main camera. A16 Bionic chip.",
-                rating: 4.8,
-                reviews: 312,
-                badge: "Value",
-                inStock: true
-            },
-            {
-                id: 19,
-                name: "Samsung Galaxy S24 Ultra",
-                category: "phone",
-                brand: "Samsung",
-                price: 1180000,
-                originalPrice: 1400000,
-                image: "https://images.unsplash.com/photo-1610945265078-3858a0828671?w=600&h=400&fit=crop",
-                specs: { display: "6.8-inch QHD+ AMOLED 120Hz", processor: "Snapdragon 8 Gen 3", camera: "200MP Main + 10x Zoom", storage: "256GB", battery: "5000mAh", weight: "233g" },
-                description: "Galaxy AI is here. Titanium frame. S Pen included. 200MP camera.",
-                rating: 4.8,
-                reviews: 156,
-                badge: "AI Powered",
-                inStock: true
-            },
-            {
-                id: 20,
-                name: "Samsung Galaxy S24+",
-                category: "phone",
-                brand: "Samsung",
-                price: 920000,
-                originalPrice: 1100000,
-                image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=400&fit=crop",
-                specs: { display: "6.7-inch QHD+ AMOLED 120Hz", processor: "Snapdragon 8 Gen 3", camera: "50MP Main + 3x Zoom", storage: "256GB", battery: "4900mAh", weight: "196g" },
-                description: "Larger screen. Galaxy AI. All-day battery.",
-                rating: 4.7,
-                reviews: 89,
-                badge: null,
-                inStock: true
-            },
-            {
-                id: 21,
-                name: "Samsung Galaxy Z Fold 5",
-                category: "phone",
-                brand: "Samsung",
-                price: 1380000,
-                originalPrice: 1650000,
-                image: "https://images.unsplash.com/photo-1660463974715-31cf9d9a497a?w=600&h=400&fit=crop",
-                specs: { display: "7.6-inch Main + 6.2-inch Cover", processor: "Snapdragon 8 Gen 2", camera: "50MP Main", storage: "512GB", battery: "4400mAh", weight: "253g" },
-                description: "The most powerful foldable. PC-like power in your pocket.",
-                rating: 4.6,
-                reviews: 67,
-                badge: "Foldable",
-                inStock: true
-            },
-            {
-                id: 22,
-                name: "Google Pixel 8 Pro",
-                category: "phone",
-                brand: "Google",
-                price: 780000,
-                originalPrice: 950000,
-                image: "https://images.unsplash.com/photo-1598327105666-5b89351aff23?w=600&h=400&fit=crop",
-                specs: { display: "6.7-inch LTPO OLED 120Hz", processor: "Google Tensor G3", camera: "50MP Main + 5x Telephoto", storage: "128GB", battery: "5050mAh", weight: "213g" },
-                description: "The best of Google. AI-powered camera. 7 years of updates.",
-                rating: 4.7,
-                reviews: 94,
-                badge: "Camera King",
-                inStock: true
-            },
-            {
-                id: 23,
-                name: "Google Pixel 8",
-                category: "phone",
-                brand: "Google",
-                price: 580000,
-                originalPrice: 720000,
-                image: "https://images.unsplash.com/photo-1598327105666-5b89351aff23?w=600&h=400&fit=crop",
-                specs: { display: "6.2-inch OLED 120Hz", processor: "Google Tensor G3", camera: "50MP Main", storage: "128GB", battery: "4575mAh", weight: "187g" },
-                description: "Compact powerhouse with best-in-class camera.",
-                rating: 4.6,
-                reviews: 78,
-                badge: "Compact",
-                inStock: true
-            },
-            {
-                id: 24,
-                name: "OnePlus 12",
-                category: "phone",
-                brand: "OnePlus",
-                price: 720000,
-                originalPrice: 850000,
-                image: "https://images.unsplash.com/photo-1660463974715-31cf9d9a497a?w=600&h=400&fit=crop",
-                specs: { display: "6.82-inch AMOLED 120Hz", processor: "Snapdragon 8 Gen 3", camera: "50MP Main + 3x Periscope", storage: "256GB", battery: "5400mAh", weight: "220g" },
-                description: "100W charging. Hasselblad camera. Smooth performance.",
-                rating: 4.7,
-                reviews: 45,
-                badge: "Fast Charge",
-                inStock: true
-            },
-            {
-                id: 25,
-                name: "Xiaomi 14 Ultra",
-                category: "phone",
-                brand: "Xiaomi",
-                price: 980000,
-                originalPrice: 1200000,
-                image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=400&fit=crop",
-                specs: { display: "6.73-inch AMOLED 120Hz", processor: "Snapdragon 8 Gen 3", camera: "50MP Leica Quad Camera", storage: "512GB", battery: "5000mAh", weight: "220g" },
-                description: "Leica optics. Professional photography in your pocket.",
-                rating: 4.5,
-                reviews: 34,
-                badge: "Photography",
-                inStock: true
-            },
-            {
-                id: 26,
-                name: "iPhone 13",
-                category: "phone",
-                brand: "Apple",
-                price: 480000,
-                originalPrice: 650000,
-                image: "https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=600&h=400&fit=crop",
-                specs: { display: "6.1-inch Super Retina XDR", processor: "A15 Bionic", camera: "Dual 12MP", storage: "128GB", battery: "19 hours video", weight: "173g" },
-                description: "Still an incredible iPhone with amazing camera and battery life.",
-                rating: 4.7,
-                reviews: 456,
-                badge: "Best Value",
-                inStock: true
-            },
-            {
-                id: 27,
-                name: "Samsung Galaxy A54 5G",
-                category: "phone",
-                brand: "Samsung",
-                price: 280000,
-                originalPrice: 350000,
-                image: "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=600&h=400&fit=crop",
-                specs: { display: "6.4-inch AMOLED 120Hz", processor: "Exynos 1380", camera: "50MP Main", storage: "128GB", battery: "5000mAh", weight: "202g" },
-                description: "Premium features at mid-range price. IP67 water resistant.",
-                rating: 4.5,
-                reviews: 123,
-                badge: "Mid-Range",
-                inStock: true
-            },
-            {
-                id: 28,
-                name: "Nothing Phone 2",
-                category: "phone",
-                brand: "Nothing",
-                price: 520000,
-                originalPrice: 650000,
-                image: "https://images.unsplash.com/photo-1660463974715-31cf9d9a497a?w=600&h=400&fit=crop",
-                specs: { display: "6.7-inch LTPO OLED 120Hz", processor: "Snapdragon 8+ Gen 1", camera: "50MP Dual", storage: "256GB", battery: "4700mAh", weight: "201g" },
-                description: "Unique Glyph Interface. Pure Nothing OS experience.",
-                rating: 4.4,
-                reviews: 56,
-                badge: "Unique",
-                inStock: true
-            },
-            {
-                id: 29,
-                name: "Sony Xperia 1 V",
-                category: "phone",
-                brand: "Sony",
-                price: 980000,
-                originalPrice: 1200000,
-                image: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600&h=400&fit=crop",
-                specs: { display: "6.5-inch 4K HDR OLED 120Hz", processor: "Snapdragon 8 Gen 2", camera: "48MP Exmor T", storage: "256GB", battery: "5000mAh", weight: "187g" },
-                description: "True optical zoom. 4K display. For creators.",
-                rating: 4.6,
-                reviews: 28,
-                badge: "Creator",
-                inStock: true
-            },
-            {
-                id: 30,
-                name: "Motorola Edge 40 Pro",
-                category: "phone",
-                brand: "Motorola",
-                price: 450000,
-                originalPrice: 580000,
-                image: "https://images.unsplash.com/photo-1598327105666-5b89351aff23?w=600&h=400&fit=crop",
-                specs: { display: "6.67-inch pOLED 165Hz", processor: "Snapdragon 8 Gen 2", camera: "50MP Main", storage: "256GB", battery: "4600mAh", weight: "196g" },
-                description: "165Hz display. 125W charging. Ready for gaming.",
-                rating: 4.3,
-                reviews: 42,
-                badge: "Gaming",
-                inStock: true
-            }
-        ];
-
-        // State
-        let cart = JSON.parse(localStorage.getItem('techvault_cart')) || [];
-        let wishlist = JSON.parse(localStorage.getItem('techvault_wishlist')) || [];
-        let compareList = [];
-        let currentFilter = 'all';
-        let currentSort = 'featured';
-        let currentUser = null;
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            initSupabase();
-            renderFeaturedProducts();
-            updateCart();
-            updateWishlist();
-            setupScrollEffect();
-            setupSearch();
-            renderBrandFilters();
-            loadUserOrders();
-            loadCurrencyPreference();
-        });
-
-        // ==========================================
-        // ORDER TRACKING (FROM SUPABASE)
-        // ==========================================
-
         async function trackOrder() {
             const input = document.getElementById('trackingInput').value.trim();
             if (!input || input.length < 5) {
                 showToast('Please enter a valid order ID');
                 return;
             }
-            
             try {
                 let order = null;
-                
-                // Try Supabase first
                 if (supabaseClient) {
-                    const { data, error } = await supabaseClient
-                        .from('orders')
-                        .select('*')
-                        .eq('order_id', input)
-                        .single();
+                    const { data, error } = await supabaseClient.from('orders').select('*').eq('order_id', input).single();
                     if (!error && data) order = data;
                 }
-                
-                // Fallback to localStorage
                 if (!order) {
                     order = JSON.parse(localStorage.getItem('order_' + input) || localStorage.getItem('pending_order_' + input));
                 }
-                
                 if (!order) {
                     showToast('Order not found. Please check your Order ID.');
                     return;
                 }
-                
-                // Display tracking
                 document.getElementById('trackingResult').classList.add('active');
-                
-                // Update timeline dates
                 const created = new Date(order.created_at);
                 document.getElementById('trackDate1').textContent = created.toLocaleString();
-                
                 if (order.status !== 'pending') {
                     document.getElementById('trackDate2').textContent = new Date(order.paid_at || order.created_at).toLocaleString();
                 }
-                
-                // Show success
                 showToast('Order found! Tracking details loaded.', 'success');
-                
-                // Scroll to result
                 document.getElementById('trackingResult').scrollIntoView({ behavior: 'smooth' });
-                
             } catch (error) {
                 console.error('Tracking error:', error);
                 showToast('Error loading order details');
@@ -4560,23 +3777,15 @@
 
         async function loadUserOrders() {
             const orders = [];
-            
-            // Try Supabase
             if (supabaseClient && currentUser) {
                 try {
-                    const { data, error } = await supabaseClient
-                        .from('orders')
-                        .select('*')
-                        .eq('customer_email', currentUser.email)
-                        .order('created_at', { ascending: false });
+                    const { data, error } = await supabaseClient.from('orders').select('*').eq('customer_email', currentUser.email).order('created_at', { ascending: false });
                     if (!error && data) {
                         renderOrders(data);
                         return;
                     }
                 } catch (e) {}
             }
-            
-            // Fallback to localStorage
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
                 if (key && (key.startsWith('order_') || key.startsWith('pending_order_'))) {
@@ -4585,7 +3794,6 @@
                     } catch(e) {}
                 }
             }
-            
             if (orders.length > 0) {
                 renderOrders(orders.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
             } else {
@@ -4595,12 +3803,10 @@
 
         function renderOrders(orders) {
             const container = document.getElementById('ordersList');
-            
             if (orders.length === 0) {
                 container.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">No orders yet. Start shopping!</p>';
                 return;
             }
-            
             container.innerHTML = orders.map(order => `
                 <div class="order-card">
                     <div class="order-header">
@@ -4618,7 +3824,7 @@
                     <div class="order-footer">
                         <div>
                             <div style="font-weight: 700;">Total: ${formatPrice(order.total_amount)}</div>
-                            <div style="font-size: 0.875rem; color: var(--gray);">${order.items.length} items</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">${order.items.length} laptop(s)</div>
                         </div>
                         <button class="btn btn-outline btn-sm" onclick="document.getElementById('trackingInput').value='${order.order_id}'; showPage('track'); trackOrder();">Track Order</button>
                     </div>
@@ -4665,12 +3871,94 @@
             setTimeout(() => location.reload(), 1000);
         }
 
-        console.log('🚀 TechVault Pro Enhanced Loaded');
-        console.log('💱 Multi-Currency Support: NGN, USD, GBP, EUR');
-        console.log('💳 Flutterwave Payment: ' + (FLUTTERWAVE_PUBLIC_KEY.includes('FLWPUBK_TEST-b05d360ef5e6b3ae62e09eb7bfc27fe0-X') ? 'NOT CONFIGURED' : (IS_PAYMENT_LIVE ? 'LIVE MODE' : 'TEST MODE')));
-        console.log('❓ Help Chat: Active');
-        console.log('📞 WhatsApp: 07032386595');
-        console.log('✈ Telegram: @fajnigltd');
+        const products = [
+            { id: 1, name: "MacBook Air M2", brand: "Apple", price: 950000, originalPrice: 1100000, image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&h=400&fit=crop", specs: { processor: "Apple M2", ram: "8GB", storage: "256GB SSD", display: "13.6-inch", battery: "18 hours", weight: "1.24 kg" }, description: "Supercharged by M2. Strikingly thin and fast so you can work, play, or create just about anything — anywhere.", rating: 4.9, reviews: 128, badge: "Best Seller", inStock: true, category: "ultrabook" },
+            { id: 2, name: "MacBook Pro 14 M2 Pro", brand: "Apple", price: 1450000, originalPrice: 1650000, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop", specs: { processor: "M2 Pro", ram: "16GB", storage: "512GB SSD", display: "14.2-inch", battery: "18 hours", weight: "1.6 kg" }, description: "The most advanced Mac laptops for demanding workflows.", rating: 4.9, reviews: 89, badge: "Pro Choice", inStock: true, category: "creative" },
+            { id: 3, name: "MacBook Pro 16 M2 Max", brand: "Apple", price: 2100000, originalPrice: 2400000, image: "https://images.unsplash.com/photo-1531297424006-640b3dbde7ed?w=600&h=400&fit=crop", specs: { processor: "M2 Max", ram: "32GB", storage: "1TB SSD", display: "16.2-inch", battery: "22 hours", weight: "2.1 kg" }, description: "Groundbreaking performance for the most demanding professionals.", rating: 5.0, reviews: 67, badge: "Ultimate", inStock: true, category: "creative" },
+            { id: 4, name: "MacBook Air M1", brand: "Apple", price: 680000, originalPrice: 850000, image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&h=400&fit=crop", specs: { processor: "Apple M1", ram: "8GB", storage: "256GB SSD", display: "13.3-inch", battery: "18 hours", weight: "1.29 kg" }, description: "Our thinnest, lightest notebook, completely transformed by the Apple M1 chip.", rating: 4.8, reviews: 245, badge: "Value", inStock: true, category: "ultrabook" },
+            { id: 5, name: "Dell XPS 13 Plus", brand: "Dell", price: 780000, originalPrice: 920000, image: "https://images.unsplash.com/photo-1593642632823-8f78536788c6?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "512GB SSD", display: "13.4-inch OLED", battery: "12 hours", weight: "1.26 kg" }, description: "Modern design with seamless glass touchpad and capacitive touch function row.", rating: 4.7, reviews: 64, badge: "Premium", inStock: true, category: "ultrabook" },
+            { id: 6, name: "Dell XPS 15", brand: "Dell", price: 920000, originalPrice: 1100000, image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "16GB", storage: "1TB SSD", display: "15.6-inch", battery: "13 hours", weight: "1.86 kg" }, description: "Powerhouse performance with stunning InfinityEdge display.", rating: 4.8, reviews: 52, badge: null, inStock: true, category: "business" },
+            { id: 7, name: "Dell XPS 17", brand: "Dell", price: 1250000, originalPrice: 1450000, image: "https://images.unsplash.com/photo-1593642632823-8f78536788c6?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "32GB", storage: "1TB SSD", display: "17-inch", battery: "10 hours", weight: "2.2 kg" }, description: "Maximum screen real estate with incredible performance.", rating: 4.7, reviews: 34, badge: "Large Screen", inStock: true, category: "creative" },
+            { id: 8, name: "Dell Latitude 7430", brand: "Dell", price: 650000, originalPrice: 780000, image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=400&fit=crop", specs: { processor: "Intel i5-1235U", ram: "16GB", storage: "512GB SSD", display: "14-inch", battery: "15 hours", weight: "1.4 kg" }, description: "Superior collaboration and productivity for business professionals.", rating: 4.5, reviews: 43, badge: "Business", inStock: true, category: "business" },
+            { id: 9, name: "Dell Alienware x15 R2", brand: "Dell", price: 1850000, originalPrice: 2100000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i9-12900H", ram: "32GB", storage: "1TB SSD", display: "15.6-inch 360Hz", battery: "6 hours", weight: "2.3 kg" }, description: "Ultimate gaming performance in a thin and light design.", rating: 4.8, reviews: 56, badge: "Gaming", inStock: true, category: "gaming" },
+            { id: 10, name: "Dell G15 Gaming", brand: "Dell", price: 720000, originalPrice: 890000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 7 6800H", ram: "16GB", storage: "512GB SSD", display: "15.6-inch 165Hz", battery: "7 hours", weight: "2.5 kg" }, description: "Game-ready performance at an affordable price.", rating: 4.4, reviews: 89, badge: "Budget Gaming", inStock: true, category: "gaming" },
+            { id: 11, name: "HP Spectre x360 14", brand: "HP", price: 680000, originalPrice: 820000, image: "https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1255U", ram: "16GB", storage: "512GB SSD", display: "13.5-inch Touch", battery: "16 hours", weight: "1.36 kg" }, description: "Convertible elegance meets powerhouse performance.", rating: 4.6, reviews: 43, badge: "2-in-1", inStock: true, category: "ultrabook" },
+            { id: 12, name: "HP Envy 16", brand: "HP", price: 750000, originalPrice: 890000, image: "https://images.unsplash.com/photo-1589561084283-930aa7b1ce50?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "16GB", storage: "1TB SSD", display: "16-inch 2.5K", battery: "11 hours", weight: "2.1 kg" }, description: "Create on-the-go with RTX 3060 graphics and color-accurate display.", rating: 4.7, reviews: 38, badge: "Creator", inStock: true, category: "creative" },
+            { id: 13, name: "HP Pavilion 15", brand: "HP", price: 380000, originalPrice: 450000, image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 5 5500U", ram: "8GB", storage: "512GB SSD", display: "15.6-inch", battery: "8 hours", weight: "1.75 kg" }, description: "Reliable performance for everyday computing.", rating: 4.3, reviews: 156, badge: "Budget", inStock: true, category: "business" },
+            { id: 14, name: "HP Omen 16", brand: "HP", price: 950000, originalPrice: 1150000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "16GB", storage: "1TB SSD", display: "16.1-inch 165Hz", battery: "8 hours", weight: "2.3 kg" }, description: "Immersive gaming with powerful specs and cooling.", rating: 4.5, reviews: 67, badge: "Gaming", inStock: true, category: "gaming" },
+            { id: 15, name: "HP EliteBook 840 G9", brand: "HP", price: 820000, originalPrice: 980000, image: "https://images.unsplash.com/photo-1544731612-de7f96afe55f?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1255U", ram: "16GB", storage: "512GB SSD", display: "14-inch", battery: "14 hours", weight: "1.36 kg" }, description: "Premium business laptop with enterprise-level security.", rating: 4.6, reviews: 34, badge: "Enterprise", inStock: true, category: "business" },
+            { id: 16, name: "Lenovo ThinkPad X1 Carbon Gen 10", brand: "Lenovo", price: 850000, originalPrice: 980000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1265U", ram: "16GB", storage: "512GB SSD", display: "14-inch 4K", battery: "15 hours", weight: "1.12 kg" }, description: "Ultralight business powerhouse with legendary ThinkPad reliability.", rating: 4.8, reviews: 156, badge: "Business", inStock: true, category: "business" },
+            { id: 17, name: "Lenovo Yoga 9i", brand: "Lenovo", price: 720000, originalPrice: 850000, image: "https://images.unsplash.com/photo-1527434065213-849f5e9607ea?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "1TB SSD", display: "14-inch OLED", battery: "14 hours", weight: "1.4 kg" }, description: "Premium 2-in-1 with rotating soundbar hinge for immersive audio.", rating: 4.7, reviews: 47, badge: "Convertible", inStock: true, category: "ultrabook" },
+            { id: 18, name: "Lenovo Legion 5 Pro", brand: "Lenovo", price: 920000, originalPrice: 1100000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 7 6800H", ram: "16GB", storage: "1TB SSD", display: "16-inch 165Hz", battery: "8 hours", weight: "2.4 kg" }, description: "The ultimate gaming battle station with WQXGA display.", rating: 4.8, reviews: 234, badge: "Gaming", inStock: true, category: "gaming" },
+            { id: 19, name: "Lenovo ThinkPad P1 Gen 5", brand: "Lenovo", price: 1450000, originalPrice: 1700000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "32GB", storage: "1TB SSD", display: "16-inch 4K", battery: "10 hours", weight: "1.8 kg" }, description: "Mobile workstation for creative professionals and engineers.", rating: 4.7, reviews: 45, badge: "Workstation", inStock: true, category: "creative" },
+            { id: 20, name: "Lenovo IdeaPad Flex 5", brand: "Lenovo", price: 320000, originalPrice: 380000, image: "https://images.unsplash.com/photo-1527434065213-849f5e9607ea?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 5 5500U", ram: "8GB", storage: "256GB SSD", display: "14-inch Touch", battery: "10 hours", weight: "1.5 kg" }, description: "Versatile 2-in-1 for everyday productivity and entertainment.", rating: 4.3, reviews: 123, badge: null, inStock: true, category: "ultrabook" },
+            { id: 21, name: "Lenovo Legion Slim 7", brand: "Lenovo", price: 1050000, originalPrice: 1250000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 9 6900HX", ram: "16GB", storage: "1TB SSD", display: "16-inch 165Hz", battery: "7 hours", weight: "1.9 kg" }, description: "Powerful gaming in a slim, portable design.", rating: 4.6, reviews: 78, badge: "Slim Gaming", inStock: true, category: "gaming" },
+            { id: 22, name: "ASUS ZenBook Pro 14 Duo", brand: "ASUS", price: 820000, originalPrice: 950000, image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop", specs: { processor: "Intel i9-12900H", ram: "32GB", storage: "1TB SSD", display: "14.5-inch OLED", battery: "9 hours", weight: "1.75 kg" }, description: "Dual-screen innovation for creative professionals.", rating: 4.6, reviews: 29, badge: "Innovation", inStock: true, category: "creative" },
+            { id: 23, name: "ASUS ROG Zephyrus G14", brand: "ASUS", price: 980000, originalPrice: 1150000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 9 6900HS", ram: "16GB", storage: "1TB SSD", display: "14-inch 120Hz", battery: "10 hours", weight: "1.72 kg" }, description: "Compact gaming powerhouse with AniMe Matrix display.", rating: 4.8, reviews: 92, badge: "Gaming", inStock: true, category: "gaming" },
+            { id: 24, name: "ASUS ROG Zephyrus G15", brand: "ASUS", price: 1150000, originalPrice: 1350000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 9 6900HS", ram: "32GB", storage: "1TB SSD", display: "15.6-inch 240Hz", battery: "9 hours", weight: "1.9 kg" }, description: "Ultra-slim gaming with RTX 3080 power.", rating: 4.9, reviews: 67, badge: "Premium Gaming", inStock: true, category: "gaming" },
+            { id: 25, name: "ASUS VivoBook Pro 15", brand: "ASUS", price: 520000, originalPrice: 650000, image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 7 5800H", ram: "16GB", storage: "512GB SSD", display: "15.6-inch OLED", battery: "8 hours", weight: "1.8 kg" }, description: "Stunning OLED display for creators on a budget.", rating: 4.5, reviews: 89, badge: "OLED Display", inStock: true, category: "creative" },
+            { id: 26, name: "ASUS TUF Gaming F15", brand: "ASUS", price: 620000, originalPrice: 780000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i5-12500H", ram: "16GB", storage: "512GB SSD", display: "15.6-inch 144Hz", battery: "8 hours", weight: "2.2 kg" }, description: "Military-grade toughness meets gaming performance.", rating: 4.4, reviews: 156, badge: "Durable", inStock: true, category: "gaming" },
+            { id: 27, name: "ASUS ZenBook 14", brand: "ASUS", price: 580000, originalPrice: 720000, image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop", specs: { processor: "Intel i5-1235U", ram: "8GB", storage: "512GB SSD", display: "14-inch OLED", battery: "12 hours", weight: "1.39 kg" }, description: "Light, thin, and powerful for mobile productivity.", rating: 4.5, reviews: 67, badge: "Ultrabook", inStock: true, category: "ultrabook" },
+            { id: 28, name: "Acer Swift 5", brand: "Acer", price: 580000, originalPrice: 690000, image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "1TB SSD", display: "14-inch Touch", battery: "12 hours", weight: "1.2 kg" }, description: "Ultralight antimicrobial design for mobile professionals.", rating: 4.5, reviews: 34, badge: "Ultralight", inStock: true, category: "ultrabook" },
+            { id: 29, name: "Acer Predator Helios 300", brand: "Acer", price: 850000, originalPrice: 1020000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "16GB", storage: "1TB SSD", display: "15.6-inch 165Hz", battery: "6 hours", weight: "2.5 kg" }, description: "Predator performance for serious gamers.", rating: 4.6, reviews: 178, badge: "Gaming", inStock: true, category: "gaming" },
+            { id: 30, name: "Acer Aspire 7", brand: "Acer", price: 420000, originalPrice: 520000, image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 5 5500U", ram: "8GB", storage: "512GB SSD", display: "15.6-inch", battery: "8 hours", weight: "2.1 kg" }, description: "Powerful computing for work and play on a budget.", rating: 4.2, reviews: 234, badge: "Budget", inStock: true, category: "business" },
+            { id: 31, name: "Razer Blade 15", brand: "Razer", price: 1350000, originalPrice: 1550000, image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12800H", ram: "16GB", storage: "1TB SSD", display: "15.6-inch 240Hz", battery: "6 hours", weight: "2.01 kg" }, description: "The ultimate premium gaming laptop with CNC aluminum chassis.", rating: 4.7, reviews: 78, badge: "Premium", inStock: true, category: "gaming" },
+            { id: 32, name: "Razer Blade 17", brand: "Razer", price: 1850000, originalPrice: 2100000, image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=400&fit=crop", specs: { processor: "Intel i9-12900H", ram: "32GB", storage: "1TB SSD", display: "17.3-inch 360Hz", battery: "5 hours", weight: "2.75 kg" }, description: "Desktop replacement with maximum gaming power.", rating: 4.8, reviews: 45, badge: "Ultimate", inStock: true, category: "gaming" },
+            { id: 33, name: "Razer Blade 14", brand: "Razer", price: 1480000, originalPrice: 1700000, image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 9 6900HX", ram: "16GB", storage: "1TB SSD", display: "14-inch 144Hz", battery: "8 hours", weight: "1.78 kg" }, description: "Compact gaming powerhouse with RTX 3080 Ti.", rating: 4.7, reviews: 56, badge: "Compact Gaming", inStock: true, category: "gaming" },
+            { id: 34, name: "LG Gram 17", brand: "LG", price: 780000, originalPrice: 920000, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "1TB SSD", display: "17-inch", battery: "19 hours", weight: "1.35 kg" }, description: "Impossibly light 17-inch laptop for maximum productivity.", rating: 4.6, reviews: 41, badge: "Lightweight", inStock: true, category: "ultrabook" },
+            { id: 35, name: "LG Gram 16", brand: "LG", price: 720000, originalPrice: 850000, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "512GB SSD", display: "16-inch", battery: "20 hours", weight: "1.19 kg" }, description: "All-day battery life in an ultra-light package.", rating: 4.7, reviews: 38, badge: "Long Battery", inStock: true, category: "ultrabook" },
+            { id: 36, name: "LG Gram 14", brand: "LG", price: 650000, originalPrice: 780000, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop", specs: { processor: "Intel i5-1235U", ram: "8GB", storage: "512GB SSD", display: "14-inch", battery: "20 hours", weight: "999g" }, description: "Under 1kg with military-grade durability.", rating: 4.5, reviews: 29, badge: "Ultralight", inStock: true, category: "ultrabook" },
+            { id: 37, name: "Samsung Galaxy Book3 Ultra", brand: "Samsung", price: 1120000, originalPrice: 1300000, image: "https://images.unsplash.com/photo-1531297424006-640b3dbde7ed?w=600&h=400&fit=crop", specs: { processor: "Intel i9-13900H", ram: "32GB", storage: "1TB SSD", display: "16-inch 3K 120Hz", battery: "14 hours", weight: "1.79 kg" }, description: "Samsung's most powerful Galaxy Book with RTX 4070.", rating: 4.8, reviews: 23, badge: "New", inStock: true, category: "creative" },
+            { id: 38, name: "Samsung Galaxy Book3 Pro 360", brand: "Samsung", price: 850000, originalPrice: 980000, image: "https://images.unsplash.com/photo-1531297424006-640b3dbde7ed?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1360P", ram: "16GB", storage: "512GB SSD", display: "16-inch AMOLED", battery: "18 hours", weight: "1.66 kg" }, description: "Versatile 2-in-1 with stunning AMOLED display.", rating: 4.6, reviews: 34, badge: "2-in-1", inStock: true, category: "ultrabook" },
+            { id: 39, name: "Samsung Galaxy Book2 Pro", brand: "Samsung", price: 580000, originalPrice: 720000, image: "https://images.unsplash.com/photo-1531297424006-640b3dbde7ed?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "512GB SSD", display: "15.6-inch AMOLED", battery: "21 hours", weight: "1.11 kg" }, description: "Incredibly light with vibrant AMOLED screen.", rating: 4.5, reviews: 45, badge: "Portable", inStock: true, category: "ultrabook" },
+            { id: 40, name: "Microsoft Surface Laptop 5", brand: "Microsoft", price: 650000, originalPrice: 780000, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1255U", ram: "16GB", storage: "512GB SSD", display: "13.5-inch Touch", battery: "18 hours", weight: "1.27 kg" }, description: "Sleek design meets Windows 11 perfection.", rating: 4.6, reviews: 67, badge: null, inStock: true, category: "business" },
+            { id: 41, name: "Microsoft Surface Laptop Studio", brand: "Microsoft", price: 950000, originalPrice: 1150000, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop", specs: { processor: "Intel i7-11370H", ram: "16GB", storage: "512GB SSD", display: "14.4-inch 120Hz", battery: "18 hours", weight: "1.7 kg" }, description: "Transforming design for creative professionals.", rating: 4.7, reviews: 34, badge: "Creative", inStock: true, category: "creative" },
+            { id: 42, name: "Microsoft Surface Pro 9", brand: "Microsoft", price: 720000, originalPrice: 850000, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1255U", ram: "16GB", storage: "256GB SSD", display: "13-inch Touch", battery: "15 hours", weight: "879g" }, description: "The ultimate 2-in-1 for flexible working.", rating: 4.5, reviews: 56, badge: "Tablet + Laptop", inStock: true, category: "ultrabook" },
+            { id: 43, name: "MSI Raider GE78 HX", brand: "MSI", price: 2250000, originalPrice: 2600000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i9-13980HX", ram: "64GB", storage: "2TB SSD", display: "17-inch 240Hz", battery: "4 hours", weight: "3.1 kg" }, description: "Desktop replacement with RTX 4090 power.", rating: 4.9, reviews: 23, badge: "Ultimate Gaming", inStock: true, category: "gaming" },
+            { id: 44, name: "MSI Stealth 15M", brand: "MSI", price: 750000, originalPrice: 890000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1280P", ram: "16GB", storage: "1TB SSD", display: "15.6-inch 144Hz", battery: "9 hours", weight: "1.8 kg" }, description: "Stealth gaming for professionals.", rating: 4.4, reviews: 45, badge: "Stealth", inStock: true, category: "gaming" },
+            { id: 45, name: "MSI Creator Z16", brand: "MSI", price: 1180000, originalPrice: 1400000, image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "32GB", storage: "1TB SSD", display: "16-inch 120Hz", battery: "9 hours", weight: "2.0 kg" }, description: "Designed for creators with Mini LED display.", rating: 4.6, reviews: 34, badge: "Creator", inStock: true, category: "creative" },
+            { id: 46, name: "MSI Prestige 14", brand: "MSI", price: 620000, originalPrice: 750000, image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1280P", ram: "16GB", storage: "512GB SSD", display: "14-inch 4K", battery: "10 hours", weight: "1.29 kg" }, description: "Business elegance with creative power.", rating: 4.3, reviews: 28, badge: "Business", inStock: true, category: "business" },
+            { id: 47, name: "Alienware m17 R5", brand: "Alienware", price: 1650000, originalPrice: 1950000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 9 6900HX", ram: "32GB", storage: "1TB SSD", display: "17.3-inch 360Hz", battery: "5 hours", weight: "3.3 kg" }, description: "Alienware's most powerful 17-inch gaming laptop.", rating: 4.8, reviews: 45, badge: "Alienware", inStock: true, category: "gaming" },
+            { id: 48, name: "Alienware x14", brand: "Alienware", price: 980000, originalPrice: 1150000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "16GB", storage: "512GB SSD", display: "14-inch 144Hz", battery: "8 hours", weight: "1.84 kg" }, description: "The world's thinnest 14-inch gaming laptop.", rating: 4.5, reviews: 56, badge: "Thinnest", inStock: true, category: "gaming" },
+            { id: 49, name: "Alienware x17 R2", brand: "Alienware", price: 2100000, originalPrice: 2400000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i9-12900HK", ram: "64GB", storage: "2TB SSD", display: "17.3-inch 360Hz", battery: "4 hours", weight: "3.2 kg" }, description: "Flagship gaming with Cherry MX mechanical keyboard.", rating: 4.9, reviews: 34, badge: "Flagship", inStock: true, category: "gaming" },
+            { id: 50, name: "Gigabyte Aorus 15X", brand: "Gigabyte", price: 1150000, originalPrice: 1350000, image: "https://images.unsplash.com/photo-1603302576837-37561b2e2312?w=600&h=400&fit=crop", specs: { processor: "Intel i7-13700H", ram: "16GB", storage: "1TB SSD", display: "15.6-inch 165Hz", battery: "6 hours", weight: "2.4 kg" }, description: "Windstorm cooling with RTX 4070 graphics.", rating: 4.5, reviews: 23, badge: "Cooling", inStock: true, category: "gaming" },
+            { id: 51, name: "Gigabyte Aero 16", brand: "Gigabyte", price: 980000, originalPrice: 1200000, image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop", specs: { processor: "Intel i7-12700H", ram: "32GB", storage: "1TB SSD", display: "16-inch 4K OLED", battery: "8 hours", weight: "2.0 kg" }, description: "Creator laptop with calibrated display.", rating: 4.6, reviews: 19, badge: "Creator", inStock: true, category: "creative" },
+            { id: 52, name: "Huawei MateBook X Pro", brand: "Huawei", price: 850000, originalPrice: 980000, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "1TB SSD", display: "14.2-inch 3K", battery: "11 hours", weight: "1.26 kg" }, description: "Premium craftsmanship with stunning Display.", rating: 4.7, reviews: 45, badge: "Premium", inStock: true, category: "ultrabook" },
+            { id: 53, name: "Huawei MateBook 16", brand: "Huawei", price: 620000, originalPrice: 750000, image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 7 5800H", ram: "16GB", storage: "512GB SSD", display: "16-inch 2.5K", battery: "12 hours", weight: "1.99 kg" }, description: "Large screen productivity with professional color accuracy.", rating: 4.4, reviews: 34, badge: null, inStock: true, category: "business" },
+            { id: 54, name: "Honor MagicBook 14", brand: "Honor", price: 450000, originalPrice: 550000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 5 5500U", ram: "16GB", storage: "512GB SSD", display: "14-inch", battery: "12 hours", weight: "1.38 kg" }, description: "All-day battery with sleek aluminum design.", rating: 4.3, reviews: 67, badge: "Value", inStock: true, category: "business" },
+            { id: 55, name: "Honor MagicBook Pro", brand: "Honor", price: 580000, originalPrice: 720000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "Intel i5-11320H", ram: "16GB", storage: "512GB SSD", display: "16.1-inch", battery: "11 hours", weight: "1.7 kg" }, description: "Large screen entertainment powerhouse.", rating: 4.4, reviews: 23, badge: null, inStock: true, category: "business" },
+            { id: 56, name: "Framework Laptop 13", brand: "Framework", price: 720000, originalPrice: 890000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1280P", ram: "32GB", storage: "1TB SSD", display: "13.5-inch", battery: "10 hours", weight: "1.3 kg" }, description: "Modular, repairable, and upgradeable laptop.", rating: 4.8, reviews: 123, badge: "Modular", inStock: true, category: "ultrabook" },
+            { id: 57, name: "Framework Laptop 16", brand: "Framework", price: 950000, originalPrice: 1150000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 9 7940HS", ram: "32GB", storage: "1TB SSD", display: "16-inch 165Hz", battery: "10 hours", weight: "2.1 kg" }, description: "Modular gaming and creative powerhouse.", rating: 4.9, reviews: 45, badge: "Modular", inStock: true, category: "creative" },
+            { id: 58, name: "Asus ProArt Studiobook 16", brand: "ASUS", price: 1350000, originalPrice: 1600000, image: "https://images.unsplash.com/photo-1618411641110-6250b6e3f7c5?w=600&h=400&fit=crop", specs: { processor: "Intel i9-12900H", ram: "64GB", storage: "2TB SSD", display: "16-inch 4K OLED", battery: "9 hours", weight: "2.4 kg" }, description: "Professional creator laptop with dial and stylus support.", rating: 4.8, reviews: 34, badge: "ProArt", inStock: true, category: "creative" },
+            { id: 59, name: "Lenovo ThinkPad X1 Nano", brand: "Lenovo", price: 680000, originalPrice: 820000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "Intel i7-1260P", ram: "16GB", storage: "512GB SSD", display: "13-inch 2K", battery: "13 hours", weight: "970g" }, description: "The lightest ThinkPad ever made.", rating: 4.6, reviews: 56, badge: "Lightest", inStock: true, category: "business" },
+            { id: 60, name: "Lenovo ThinkPad Z16", brand: "Lenovo", price: 980000, originalPrice: 1200000, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop", specs: { processor: "AMD Ryzen 9 PRO 6950H", ram: "32GB", storage: "1TB SSD", display: "16-inch 4K OLED", battery: "12 hours", weight: "1.81 kg" }, description: "Premium AMD business laptop with sustainable materials.", rating: 4.7, reviews: 28, badge: "Sustainable", inStock: true, category: "business" }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('axton_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('axton_wishlist')) || [];
+        let compareList = [];
+        let currentFilter = 'all';
+        let currentSort = 'featured';
+        let currentUser = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initSupabase();
+            renderFeaturedProducts();
+            updateCart();
+            updateWishlist();
+            setupScrollEffect();
+            setupSearch();
+            renderBrandFilters();
+            loadUserOrders();
+            loadCurrencyPreference();
+            
+            console.log('🚀 Axton Laptop Site Loaded');
+            console.log('💻 60 Premium Laptops Available');
+            console.log('💱 Multi-Currency Support: NGN, USD, GBP, EUR');
+            console.log('💳 Flutterwave Payment: LIVE MODE');
+            console.log('📞 WhatsApp: 07032386595');
+            console.log('✈ Telegram: @fajnigltd');
+        });
     </script>
 </body>
 </html>
